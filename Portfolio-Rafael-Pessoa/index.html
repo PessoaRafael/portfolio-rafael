@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Pessoa | Analista de Dados</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+    
+<script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+<script>
+  emailjs.init("0c05cr4RUGRHuA2K-"); 
+
+  const form = document.getElementById("contactForm");
+  form.addEventListener("submit", function(event) {
+    event.preventDefault();
+    emailjs.sendForm("service_luvkjk1", "template_n28by3c", this)
+      .then(() => {
+        alert("Email enviado com sucesso!");
+        form.reset();
+      })
+      .catch((err) => {
+        alert("Erro ao enviar o email: " + JSON.stringify(err));
+      });
+  });
+</script>
+
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Rafael Pessoa</div>
+                <ul class="nav-links">
+                    <li><a href="#about">Sobre</a></li>
+                    <li><a href="#experience">Experiência</a></li>
+                    <li><a href="#projects">Projetos</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+                <button class="theme-toggle" id="themeToggle">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Transformando dados em insights estratégicos</h1>
+      <p>
+        Analista de Dados com expertise em Python, Power BI e SQL, transformando dados complexos em soluções inteligentes para negócios.
+      </p>
+      <div class="hero-badges">
+        <span class="badge">Python</span>
+        <span class="badge">Power BI</span>
+        <span class="badge">SQL</span>
+        <span class="badge">ETL</span>
+        <span class="badge">Web Scraping</span>
+        <span class="badge">Storytelling</span>
+      </div>
+      <div class="hero-actions">
+        <a href="#projects" class="btn">Ver Projetos</a>
+        <a href="#contact" class="btn btn-outline">Entrar em Contato</a>
+        <a href="cv_rafael_pessoa.pdf" download class="btn btn-outline"><i class="fas fa-download"></i> Baixar CV</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sobre -->
+  <section id="about">
+    <div class="container">
+      <div class="section-title">
+        <h2>Sobre Mim</h2>
+      </div>
+      <div class="about-content">
+        <div class="about-photo">
+          <img src="Screenshot_160.png" alt="Foto de Rafael Pessoa" />
+        </div>
+        <div class="about-text">
+          <h3>Analista de Dados & Product Owner</h3>
+          <p>
+            Sou Rafael Pessoa, de Natal/RN, e trabalho com T.I desde 2022. Nos últimos 2 anos, venho atuando como analista de dados, ajudando empresas a entender melhor suas informações para tomar decisões mais seguras.
+          </p>
+          <p>
+            Me destaco por ser resiliente, proativo e ter uma boa comunicação, sempre buscando contribuir de forma prática para melhorar processos e resultados. Meu objetivo é crescer profissionalmente em ambientes que valorizem tecnologia e trabalho em equipe.
+          </p>
+          <p>
+            Formado em Análise e Desenvolvimento de Sistemas pelo IFRN, com diversas certificações na área de dados e business intelligence.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experiência -->
+  <section id="experience" style="background-color: var(--bg-secondary)">
+    <div class="container">
+      <div class="section-title">
+        <h2>Experiência Profissional</h2>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2024 - Presente</div>
+            <div class="timeline-company">RankMyApp</div>
+            <div class="timeline-role">Analista de Dados</div>
+            <p>
+              Desenvolvimento de dashboards interativos no Power BI, análise de dados com Python e automação de processos de coleta de dados.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2022 - 2023</div>
+            <div class="timeline-company">ESIG Software</div>
+            <div class="timeline-role">Analista de Requisitos</div>
+            <p>
+              Modelagem de sistemas com UML, gestão de backlog no JIRA e aplicação de metodologias ágeis como Scrum e Kanban.
+            </p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2022</div>
+            <div class="timeline-company">Blacklab Ventures</div>
+            <div class="timeline-role">Product Manager - Estágio</div>
+            <p>
+              Colaboração com equipe de produto no levantamento de requisitos e priorização de funcionalidades.
+            </p>
+          </div>
+        </div>
+        <!-- Nova Experiência -->
+        <div class="timeline-item">
+          <div class="timeline-content">
+            <div class="timeline-date">2020 - 2023</div>
+            <div class="timeline-company">Teleperformance</div>
+            <div class="timeline-role">Customer Success Specialist</div>
+            <p>
+              Atuação no suporte ao cliente e garantia de satisfação, com foco em relacionamento, resolução de demandas e melhoria da experiência do usuário.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Projetos -->
+    <section id="projects">
+        <div class="container">
+            <div class="section-title">
+                <h2>Projetos em Destaque</h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-user-slash"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Análise de Churn</h3>
+                        <p class="project-desc">Sistema de previsão de rotatividade de clientes usando machine learning para identificar fatores de churn e recomendar ações de retenção.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Machine Learning</span>
+                            <span class="project-tag">Power BI</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Dashboard de Performance</h3>
+                        <p class="project-desc">Dashboard interativo para monitoramento de KPIs de performance de aplicativos, com atualização em tempo real e alertas automáticos.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Power BI</span>
+                            <span class="project-tag">SQL</span>
+                            <span class="project-tag">DAX</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Análise de E-commerce</h3>
+                        <p class="project-desc">Análise completa do funil de vendas, padrões de compra e segmentação de clientes para otimização de campanhas de marketing.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">Pandas</span>
+                            <span class="project-tag">Seaborn</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="project-link"><i class="fas fa-eye"></i> Visualizar</a>
+                            <a href="#" class="project-link"><i class="fab fa-github"></i> Código</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   <!-- Contato -->
+<section id="contact" style="background-color: var(--bg-secondary);">
+    <div class="container">
+        <div class="section-title">
+            <h2>Entre em Contato</h2>
+        </div>
+        <div class="contact-container">
+            <!-- Info de contato -->
+            <div class="contact-info">
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-envelope"></i>
+                    </div>
+                    <div>
+                        <h3>Email</h3>
+                        <p>rafaelpessoa89@hotmail.com</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-phone"></i>
+                    </div>
+                    <div>
+                        <h3>Telefone</h3>
+                        <p>(84) 99460-4608</p>
+                    </div>
+                </div>
+                <div class="contact-item">
+                    <div class="contact-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div>
+                        <h3>Localização</h3>
+                        <p>Natal/RN, Brasil</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Gráfico animado -->
+            <div class="contact-visual">
+                <h3>DADOS TRANSFORMAM TUDO</h3>
+                <div class="chart">
+                    <div class="bar" style="--height: 60%"></div>
+                    <div class="bar" style="--height: 80%"></div>
+                    <div class="bar" style="--height: 40%"></div>
+                    <div class="bar" style="--height: 70%"></div>
+                    <div class="bar" style="--height: 50%"></div>
+                    <div class="bar" style="--height: 40%"></div>
+                    <div class="bar" style="--height: 40%"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="social-links">
+                <a href="https://linkedin.com/in/rafael-pessoa-4210a31b8/" class="social-link">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="https://github.com/PessoaRafael" class="social-link">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="#" class="social-link">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <p class="copyright">© 2025 Rafael Pessoa. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+</body>
+</html>
+    
