@@ -205,6 +205,8 @@ tbody td{padding:15px 16px;vertical-align:top}
 td.c-empresa{font-size:15px;font-weight:600;letter-spacing:-.01em}
 td.c-periodo{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;color:var(--tinta-72);white-space:nowrap}
 td.c-funcao{font-size:14px;line-height:1.45}
+/* Nível dentro do cargo, em mono para ler como grau e não como número solto. */
+.nivel{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;font-weight:500;color:var(--anil);letter-spacing:.04em}
 td.c-stack{font-size:13px;line-height:1.55;color:var(--tinta-72)}
 td.c-resultado{text-align:right}
 td.c-resultado .num{font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--tinta)}
@@ -522,10 +524,10 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
             <td class="c-stack" data-rot="Stack">Python, FastAPI, Vue</td>
             <td class="c-resultado" data-rot="Resultado"><div class="num"></div><div class="txt">Frente de dados e automação da consultoria</div></td>
           </tr>
-          <tr data-empresa="RankMyApp" data-start="202401" data-funcao="Analista de Dados Pleno" data-stack="Power BI, DAX, Python, SQL, web scraping" data-score="35">
+          <tr data-empresa="RankMyApp" data-start="202401" data-funcao="Analista de Dados Pleno II" data-stack="Power BI, DAX, Python, SQL, web scraping" data-score="35">
             <td class="c-empresa" data-rot="Empresa">RankMyApp</td>
             <td class="c-periodo" data-rot="Período">01/2024 até hoje</td>
-            <td class="c-funcao" data-rot="Função">Analista de Dados Pleno</td>
+            <td class="c-funcao" data-rot="Função">Analista de Dados Pleno <span class="nivel">II</span></td>
             <td class="c-stack" data-rot="Stack">Power BI, DAX, Python, SQL, web scraping</td>
             <td class="c-resultado" data-rot="Resultado"><div class="num">+35% / -40%</div><div class="txt">Visibilidade das métricas críticas, e tempo de processamento</div></td>
           </tr>
