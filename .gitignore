@@ -1,0 +1,9 @@
+# Configuração local de ferramenta
+.claude/
+
+# Material de origem, não faz parte do site publicado.
+# Ficam só no disco: os originais das fotos, a cópia solta do currículo
+# e o bundle exportado de onde saiu o HTML atual.
+/Captura de tela*.png
+/CV_RafaelPessoa_AnalistaDadosSenior.pdf
+Portfolio-Rafael-Pessoa/rafael-pessoa-site.html
