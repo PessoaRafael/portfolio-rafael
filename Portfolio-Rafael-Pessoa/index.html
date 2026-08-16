@@ -240,6 +240,14 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 .stack-lista{display:flex;flex-wrap:wrap;gap:7px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;list-style:none}
 .stack-lista li{border:1px solid var(--regua);background:var(--papel);border-radius:4px;padding:6px 10px}
 .painel-estado{font-size:15px;line-height:1.55}
+/* Botão só existe em projeto com link público. */
+.btn-projeto{
+  display:inline-flex;align-items:center;gap:8px;margin-top:18px;
+  border:1px solid var(--anil);border-radius:5px;padding:10px 16px;
+  background:var(--papel);color:var(--anil);text-decoration:none;
+  font-size:14px;font-weight:600;transition:background 140ms ease,color 140ms ease;
+}
+.btn-projeto:hover{background:var(--anil);color:var(--papel)}
 
 /* ---------- FAQ ---------- */
 .faq{display:grid;gap:10px}
@@ -652,6 +660,30 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
         </div>
       </article>
 
+      <article class="projeto">
+        <div class="projeto-texto">
+          <span class="tag">Em produção</span>
+          <h3>Johny Barbearia</h3>
+          <p class="problema">Marcar corte dependia de mandar mensagem e esperar resposta, então a agenda vivia na cabeça de quem atendia e o cliente nunca sabia se o horário estava garantido.</p>
+          <p>Construí o site de agendamento com catálogo de dezesseis serviços com preço e duração fechados, escolha de barbeiro e horário em quatro passos, clube de assinatura mensal e painel para a barbearia acompanhar a agenda. A entrada é por chave de acesso, sem e-mail nem senha, e quem prefere conversar marca escrevendo em texto livre no chat.</p>
+          <a class="btn-projeto" href="https://barbearia-phi-nine.vercel.app/" target="_blank" rel="noopener">
+            Ver no ar
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
+          </a>
+        </div>
+        <div class="projeto-painel">
+          <div class="painel-topo"><span>05 / ficha técnica</span><span class="estado">no ar</span></div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Stack</p>
+            <ul class="stack-lista"><li>Next.js</li><li>React</li><li>Vercel</li></ul>
+          </div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Resultado ou estado atual</p>
+            <p class="painel-estado">No ar e em uso pela barbearia, em Natal, com três barbeiros na agenda e três planos do Clube Johny.</p>
+          </div>
+        </div>
+      </article>
+
     </div>
   </div>
 </section>
@@ -765,7 +797,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."}}]}</script>
 
 <script>
 /* Marca a barra do topo assim que a página sai do zero, para separar
