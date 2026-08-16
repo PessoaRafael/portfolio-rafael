@@ -173,6 +173,9 @@ img,svg{max-width:100%}
 .ficha{border:1px solid var(--regua);background:var(--superficie);border-radius:6px;padding:16px 18px}
 .ficha dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-72);margin-bottom:7px}
 .ficha dd{font-size:15px;line-height:1.55;margin:0}
+/* Marca do Google no tamanho de selo, ao lado do título, não como ícone decorativo. */
+.titulo-google{display:flex;align-items:center;gap:10px;font-weight:600;letter-spacing:-.01em}
+.marca-google{flex:0 0 auto}
 
 /* ---------- Experiência ---------- */
 .tabela-topo{
@@ -467,12 +470,20 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
       </div>
       <dl class="fichas">
         <div class="ficha">
-          <dt>Formação e certificação</dt>
-          <dd>Análise e Desenvolvimento de Sistemas, IFRN. Microsoft PL-300, Power BI Data Analyst Associate. Inglês B2.</dd>
+          <dt>Título mais recente</dt>
+          <dd class="titulo-google">
+            <svg class="marca-google" viewBox="0 0 48 48" width="20" height="20" role="img" aria-label="Google">
+              <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5Z"></path>
+              <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65Z"></path>
+              <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.28-3.14.76-4.59l-7.97-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19Z"></path>
+              <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48Z"></path>
+            </svg>
+            <span>Google Student Ambassador 2026</span>
+          </dd>
         </div>
         <div class="ficha">
-          <dt>Sociedade</dt>
-          <dd>Cofundador da PRIVORA, consultoria de conformidade LGPD, privacidade e governança de IA, onde lidero a frente de dados e tecnologia.</dd>
+          <dt>Formação e certificação</dt>
+          <dd>Análise e Desenvolvimento de Sistemas, IFRN. Microsoft PL-300, Power BI Data Analyst Associate. Inglês B2.</dd>
         </div>
         <div class="ficha">
           <dt>Comunidade</dt>
@@ -489,12 +500,12 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
     <div class="cabeca" style="margin-bottom:clamp(26px,4vw,40px)">
       <p class="olho olho-anil">Experiência</p>
       <h2 id="t-exp">Experiência profissional em dados e desenvolvimento</h2>
-      <p>Seis posições em análise de dados, business intelligence, requisitos e desenvolvimento, entre 2020 e hoje. Clique em qualquer cabeçalho para reordenar. Os percentuais ficam presos ao emprego onde aconteceram.</p>
+      <p>Cinco posições em análise de dados, business intelligence, requisitos e desenvolvimento, entre 2020 e hoje. Clique em qualquer cabeçalho para reordenar. Os percentuais ficam presos ao emprego onde aconteceram.</p>
     </div>
 
     <div class="tabela-topo">
       <span class="mono" id="ordem-status">ORDER BY periodo DESC</span>
-      <span class="contagem">6 linhas &middot; ordene por qualquer coluna</span>
+      <span class="contagem">5 linhas &middot; ordene por qualquer coluna</span>
     </div>
 
     <div class="tabela-rolagem" tabindex="0" role="region" aria-label="Tabela de experiência profissional, rolagem horizontal">
@@ -516,13 +527,6 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
             <td class="c-funcao" data-rot="Função">Desenvolvedor Fullstack Pleno</td>
             <td class="c-stack" data-rot="Stack">FastAPI, Vue, MySQL, Python, openpyxl</td>
             <td class="c-resultado" data-rot="Resultado"><div class="num"></div><div class="txt">Plataforma de gestão de festivais em produção</div></td>
-          </tr>
-          <tr data-empresa="PRIVORA" data-start="202606" data-funcao="Cofundador, Dados e Tecnologia" data-stack="Python, FastAPI, Vue" data-score="0">
-            <td class="c-empresa" data-rot="Empresa">PRIVORA</td>
-            <td class="c-periodo" data-rot="Período">06/2026 até hoje</td>
-            <td class="c-funcao" data-rot="Função">Cofundador, Dados e Tecnologia</td>
-            <td class="c-stack" data-rot="Stack">Python, FastAPI, Vue</td>
-            <td class="c-resultado" data-rot="Resultado"><div class="num"></div><div class="txt">Frente de dados e automação da consultoria</div></td>
           </tr>
           <tr data-empresa="RankMyApp" data-start="202401" data-funcao="Analista de Dados Pleno II" data-stack="Power BI, DAX, Python, SQL, web scraping" data-score="35">
             <td class="c-empresa" data-rot="Empresa">RankMyApp</td>
@@ -679,7 +683,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 
       <details>
         <summary><span>Como você lida com dado sensível e LGPD?</span><span class="mais" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"></path></svg></span></summary>
-        <p class="resposta">Sou cofundador da PRIVORA, consultoria de conformidade LGPD, privacidade e governança de IA, onde lidero a frente de dados e tecnologia. No SQL Runner isso virou produto: segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado.</p>
+        <p class="resposta">Com controle de acesso e registro, não com confiança. No SQL Runner isso virou produto: segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only, que não pode ser reescrito. No pipeline de storytelling o dado entra anonimizado, então a narrativa nunca depende de identificar ninguém.</p>
       </details>
 
       <details>
@@ -689,7 +693,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 
       <details>
         <summary><span>Você já trabalhou fora do meu setor?</span><span class="mais" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"></path></svg></span></summary>
-        <p class="resposta">Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures, festivais de dança na Dança Digital e conformidade na PRIVORA. O que se repete em todos é o mesmo trabalho: entender a regra do negócio, achar onde o dado quebra e automatizar o que era manual.</p>
+        <p class="resposta">Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital. O que se repete em todos é o mesmo trabalho: entender a regra do negócio, achar onde o dado quebra e automatizar o que era manual.</p>
       </details>
 
       <details>
@@ -758,9 +762,9 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 </section>
 
 <!-- ============ DADOS ESTRUTURADOS ============ -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","LGPD","Governança de IA","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"hasCredential":{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"PRIVORA"},{"@type":"Organization","name":"Dança Digital"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Sou cofundador da PRIVORA, consultoria de conformidade LGPD, privacidade e governança de IA. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures, festivais de dança na Dança Digital e conformidade na PRIVORA."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, BI e conformidade LGPD","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}}]}</script>
 
 <script>
