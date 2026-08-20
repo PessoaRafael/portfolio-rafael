@@ -181,7 +181,8 @@ img,svg{max-width:100%}
   border:1px solid var(--regua);background:var(--superficie);border-radius:6px;
   padding:12px 16px;font-size:15px;font-weight:600;letter-spacing:-.01em;
 }
-.selo svg{flex:0 0 auto}
+.selo svg,.marca-selo{flex:0 0 auto}
+.marca-selo{height:20px;width:auto}
 
 /* ---------- Experiência ---------- */
 .tabela-topo{
@@ -222,6 +223,25 @@ td.c-resultado .num{font-family:'Geist Mono',ui-monospace,monospace;font-size:14
 table.destaca-resultado td.c-resultado .num{color:var(--ocre)}
 td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-top:4px}
 .nota-tabela{font-size:12px;color:var(--tinta-72);margin-top:10px}
+
+/* ---------- Empresas e clientes ---------- */
+.parede-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;list-style:none}
+.celula-logo{
+  position:relative;display:flex;align-items:center;justify-content:center;
+  min-height:106px;padding:20px 24px;
+  border:1px solid var(--regua);background:var(--superficie);border-radius:6px;
+}
+.celula-logo img{
+  max-height:46px;max-width:100%;width:auto;object-fit:contain;
+  filter:grayscale(1);opacity:.68;
+  transition:filter 180ms ease,opacity 180ms ease;
+}
+.celula-logo:hover img{filter:none;opacity:1}
+/* Sem cursor não existe hover, então no toque a marca já entra colorida. */
+@media (hover:none){.celula-logo img{filter:none;opacity:1}}
+/* Enquanto o arquivo da marca não existe, a célula mostra o nome. */
+.logo-nome{display:none;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:var(--tinta-72);text-align:center;letter-spacing:.02em}
+.sem-logo .logo-nome{display:block}
 
 /* ---------- Projetos ---------- */
 .projetos{display:grid;gap:clamp(28px,4vw,52px)}
@@ -301,6 +321,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
   .retrato{justify-self:start;width:220px;height:220px}
   .retrato-vazio{font-size:48px}
   .stats{grid-template-columns:repeat(2,1fr)}
+  .parede-logos{grid-template-columns:repeat(3,1fr)}
   .sobre-grid{grid-template-columns:1fr}
   .projeto{grid-template-columns:1fr}
   .projeto .projeto-texto,.projeto .projeto-painel,
@@ -358,6 +379,8 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 
 @media (max-width:640px){
   .stats{grid-template-columns:1fr}
+  .parede-logos{grid-template-columns:repeat(2,1fr)}
+  .celula-logo{min-height:92px;padding:16px}
   .hero{padding:26px 0 30px;gap:28px} /* no celular o conteúdo começa logo abaixo da barra */
   .hero h1{margin-top:16px}
   .hero-sub{margin-top:14px}
@@ -494,11 +517,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <span>Google Student Ambassador 2026</span>
         </p>
         <p class="selo">
-          <svg viewBox="0 0 48 48" width="20" height="20" fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round" role="img" aria-label="Google Developer Groups">
-            <path stroke="#4285F4" d="M18 13 7 24l11 11"></path>
-            <path stroke="#34A853" d="M30 13l11 11-11 11"></path>
-            <path stroke="#EA4335" d="M27 11 21 37"></path>
-          </svg>
+          <img class="marca-selo" src="logos/gdg-marca.png" alt="" width="94" height="80" loading="lazy" decoding="async">
           <span>Organizador do GDG Natal</span>
         </p>
       </div>
@@ -583,6 +602,47 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
       </table>
     </div>
     <p class="nota-tabela">Arraste na horizontal para ver todas as colunas.</p>
+  </div>
+</section>
+
+<!-- ============ EMPRESAS E CLIENTES ============ -->
+<section class="band" id="parceiros" aria-labelledby="t-parceiros">
+  <div class="wrap">
+    <div class="cabeca" style="margin-bottom:clamp(26px,4vw,40px)">
+      <p class="olho olho-anil">Confiança</p>
+      <h2 id="t-parceiros">Empresas, clientes e comunidade</h2>
+      <p>Onde meu trabalho já rodou, entre emprego, projeto de cliente e comunidade técnica.</p>
+    </div>
+    <ul class="parede-logos">
+      <li class="celula-logo">
+        <img src="logos/rankmyapp.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">RankMyApp</span>
+      </li>
+      <li class="celula-logo">
+        <img src="logos/esig.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">ESIG Software</span>
+      </li>
+      <li class="celula-logo">
+        <img src="logos/danca-digital.png" alt="" width="401" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">Dança Digital</span>
+      </li>
+      <li class="celula-logo">
+        <img src="logos/johny-barbearia.jpg" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">Johny Barbearia</span>
+      </li>
+      <li class="celula-logo">
+        <img src="logos/tudo-para-pet.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">Tudo para Pet</span>
+      </li>
+      <li class="celula-logo">
+        <img src="logos/rits.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">RITS</span>
+      </li>
+      <li class="celula-logo">
+        <img src="logos/gdg-natal.png" alt="" width="920" height="120" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
+        <span class="logo-nome">GDG Natal</span>
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -809,6 +869,8 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 </section>
 
 <!-- ============ DADOS ESTRUTURADOS ============ -->
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"RankMyApp"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"ESIG Software"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Dança Digital"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Johny Barbearia"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Tudo para Pet"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"RITS"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Google Developer Groups Natal"}}]}</script>
+
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"memberOf":{"@type":"Organization","name":"Google Developer Groups Natal","alternateName":"GDG Natal"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
