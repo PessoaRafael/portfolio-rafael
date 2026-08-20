@@ -225,23 +225,32 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 .nota-tabela{font-size:12px;color:var(--tinta-72);margin-top:10px}
 
 /* ---------- Empresas e clientes ---------- */
-.parede-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;list-style:none}
-.celula-logo{
-  position:relative;display:flex;align-items:center;justify-content:center;
-  min-height:106px;padding:20px 24px;
-  border:1px solid var(--regua);background:var(--superficie);border-radius:6px;
+/* Esteira contínua: duas trilhas idênticas deslizando lado a lado.
+   Quando a primeira sai inteira, a segunda já ocupou o lugar dela. */
+.esteira{
+  display:flex;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+          mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
 }
-.celula-logo img{
-  max-height:46px;max-width:100%;width:auto;object-fit:contain;
-  filter:grayscale(1);opacity:.68;
-  transition:filter 180ms ease,opacity 180ms ease;
+.esteira-trilha{
+  display:flex;align-items:center;flex:0 0 auto;
+  gap:clamp(44px,7vw,96px);padding-right:clamp(44px,7vw,96px);
+  list-style:none;margin:0;
+  animation:desliza 42s linear infinite;
+  will-change:transform;
 }
-.celula-logo:hover img{filter:none;opacity:1}
-/* Sem cursor não existe hover, então no toque a marca já entra colorida. */
-@media (hover:none){.celula-logo img{filter:none;opacity:1}}
-/* Enquanto o arquivo da marca não existe, a célula mostra o nome. */
-.logo-nome{display:none;font-family:'Geist Mono',ui-monospace,monospace;font-size:13px;color:var(--tinta-72);text-align:center;letter-spacing:.02em}
-.sem-logo .logo-nome{display:block}
+@keyframes desliza{from{transform:translateX(0)}to{transform:translateX(-100%)}}
+.esteira:hover .esteira-trilha,.esteira:focus-within .esteira-trilha{animation-play-state:paused}
+.marca{display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.marca img{height:clamp(32px,4.2vw,46px);width:auto;max-width:none;display:block}
+/* Marca quadrada com fundo próprio fica melhor com o canto arredondado do avatar. */
+.marca img[src$="johny-barbearia.jpg"],.marca img[src$="esig.png"]{border-radius:8px}
+/* Enquanto o arquivo não existe, o nome entra como assinatura. */
+.marca-nome{
+  display:none;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;
+  font-size:clamp(16px,2vw,20px);letter-spacing:-.02em;color:var(--tinta-72);white-space:nowrap;
+}
+.sem-marca .marca-nome{display:block}
 
 /* ---------- Projetos ---------- */
 .projetos{display:grid;gap:clamp(28px,4vw,52px)}
@@ -321,7 +330,6 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
   .retrato{justify-self:start;width:220px;height:220px}
   .retrato-vazio{font-size:48px}
   .stats{grid-template-columns:repeat(2,1fr)}
-  .parede-logos{grid-template-columns:repeat(3,1fr)}
   .sobre-grid{grid-template-columns:1fr}
   .projeto{grid-template-columns:1fr}
   .projeto .projeto-texto,.projeto .projeto-painel,
@@ -379,8 +387,6 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 
 @media (max-width:640px){
   .stats{grid-template-columns:1fr}
-  .parede-logos{grid-template-columns:repeat(2,1fr)}
-  .celula-logo{min-height:92px;padding:16px}
   .hero{padding:26px 0 30px;gap:28px} /* no celular o conteúdo começa logo abaixo da barra */
   .hero h1{margin-top:16px}
   .hero-sub{margin-top:14px}
@@ -396,6 +402,9 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
+  .esteira{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
+  .esteira-trilha{animation:none!important;transform:none!important}
+  .esteira-trilha[aria-hidden="true"]{display:none}
   *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
 </style>
@@ -608,41 +617,81 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 <!-- ============ EMPRESAS E CLIENTES ============ -->
 <section class="band" id="parceiros" aria-labelledby="t-parceiros">
   <div class="wrap">
-    <div class="cabeca" style="margin-bottom:clamp(26px,4vw,40px)">
+    <div class="cabeca" style="margin-bottom:clamp(26px,4vw,42px)">
       <p class="olho olho-anil">Confiança</p>
       <h2 id="t-parceiros">Empresas, clientes e comunidade</h2>
       <p>Onde meu trabalho já rodou, entre emprego, projeto de cliente e comunidade técnica.</p>
     </div>
-    <ul class="parede-logos">
-      <li class="celula-logo">
-        <img src="logos/rankmyapp.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">RankMyApp</span>
-      </li>
-      <li class="celula-logo">
-        <img src="logos/esig.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">ESIG Software</span>
-      </li>
-      <li class="celula-logo">
-        <img src="logos/danca-digital.png" alt="" width="401" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">Dança Digital</span>
-      </li>
-      <li class="celula-logo">
-        <img src="logos/johny-barbearia.jpg" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">Johny Barbearia</span>
-      </li>
-      <li class="celula-logo">
-        <img src="logos/tudo-para-pet.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">Tudo para Pet</span>
-      </li>
-      <li class="celula-logo">
-        <img src="logos/rits.png" alt="" width="176" height="176" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">RITS</span>
-      </li>
-      <li class="celula-logo">
-        <img src="logos/gdg-natal.png" alt="" width="920" height="120" loading="lazy" decoding="async" onerror="this.closest('li').classList.add('sem-logo');this.remove()">
-        <span class="logo-nome">GDG Natal</span>
-      </li>
-    </ul>
+  </div>
+  <div class="esteira" role="group" aria-label="Empresas, clientes e comunidade com quem trabalhei">
+      <ul class="esteira-trilha">
+        <li class="marca">
+          <img src="logos/rankmyapp.png" alt="RankMyApp" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">RankMyApp</span>
+        </li>
+        <li class="marca">
+          <img src="logos/esig.png" alt="ESIG Software" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">ESIG Software</span>
+        </li>
+        <li class="marca">
+          <img src="logos/danca-digital.png" alt="Dança Digital" width="401" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Dança Digital</span>
+        </li>
+        <li class="marca">
+          <img src="logos/johny-barbearia.jpg" alt="Johny Barbearia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Johny Barbearia</span>
+        </li>
+        <li class="marca">
+          <img src="logos/tudo-para-pet.png" alt="Tudo para Pet" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Tudo para Pet</span>
+        </li>
+        <li class="marca">
+          <img src="logos/rits.png" alt="RITS Tecnologia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">RITS Tecnologia</span>
+        </li>
+        <li class="marca">
+          <img src="logos/teleperformance.svg" alt="Teleperformance" width="50" height="53" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Teleperformance</span>
+        </li>
+        <li class="marca">
+          <img src="logos/gdg-natal.png" alt="GDG Natal" width="920" height="120" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">GDG Natal</span>
+        </li>
+      </ul>
+      <ul class="esteira-trilha" aria-hidden="true">
+        <li class="marca">
+          <img src="logos/rankmyapp.png" alt="RankMyApp" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">RankMyApp</span>
+        </li>
+        <li class="marca">
+          <img src="logos/esig.png" alt="ESIG Software" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">ESIG Software</span>
+        </li>
+        <li class="marca">
+          <img src="logos/danca-digital.png" alt="Dança Digital" width="401" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Dança Digital</span>
+        </li>
+        <li class="marca">
+          <img src="logos/johny-barbearia.jpg" alt="Johny Barbearia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Johny Barbearia</span>
+        </li>
+        <li class="marca">
+          <img src="logos/tudo-para-pet.png" alt="Tudo para Pet" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Tudo para Pet</span>
+        </li>
+        <li class="marca">
+          <img src="logos/rits.png" alt="RITS Tecnologia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">RITS Tecnologia</span>
+        </li>
+        <li class="marca">
+          <img src="logos/teleperformance.svg" alt="Teleperformance" width="50" height="53" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Teleperformance</span>
+        </li>
+        <li class="marca">
+          <img src="logos/gdg-natal.png" alt="GDG Natal" width="920" height="120" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">GDG Natal</span>
+        </li>
+      </ul>
   </div>
 </section>
 
@@ -869,7 +918,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 </section>
 
 <!-- ============ DADOS ESTRUTURADOS ============ -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"RankMyApp"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"ESIG Software"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Dança Digital"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Johny Barbearia"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Tudo para Pet"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"RITS"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Google Developer Groups Natal"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"RankMyApp"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"ESIG Software"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Dança Digital"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Johny Barbearia"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Tudo para Pet"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"RITS"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Teleperformance"}},{"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Google Developer Groups Natal"}}]}</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"memberOf":{"@type":"Organization","name":"Google Developer Groups Natal","alternateName":"GDG Natal"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
