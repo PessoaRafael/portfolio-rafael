@@ -259,6 +259,40 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 }
 .sem-marca .marca-nome{display:block}
 
+/* ---------- Destaque ---------- */
+.destaque{border-bottom:0}
+.destaque-capa{
+  display:block;position:relative;border:1px solid var(--borda-escura);border-radius:8px;
+  overflow:hidden;background:var(--painel);text-decoration:none;
+}
+.destaque-capa img{display:block;width:100%;height:auto;transition:transform 420ms ease}
+.destaque-capa:hover img{transform:scale(1.012)}
+.destaque-abre{
+  position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:8px;
+  background:rgba(20,23,26,.84);border:1px solid var(--borda-escura);border-radius:5px;
+  color:var(--papel);font-size:13px;font-weight:600;padding:8px 12px;
+  transition:border-color 140ms ease,background 140ms ease;
+}
+.destaque-capa:hover .destaque-abre{border-color:var(--anil-link);background:var(--tinta)}
+.destaque-corpo{
+  display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;
+  margin-top:clamp(26px,3.5vw,40px);
+}
+.destaque-corpo h3{font-size:clamp(21px,2.6vw,27px);letter-spacing:-.022em;margin:14px 0 10px;line-height:1.15}
+.destaque-corpo p{font-size:15.5px;line-height:1.6;color:var(--papel-72);max-width:52ch}
+.destaque-corpo p+p{margin-top:12px}
+.destaque .tag{color:var(--anil-claro);background:rgba(143,176,232,.12)}
+.destaque-numeros{
+  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;list-style:none;
+  background:var(--borda-escura);border:1px solid var(--borda-escura);border-radius:6px;overflow:hidden;
+}
+.destaque-numeros li{background:var(--painel);padding:16px 18px}
+.destaque-numeros strong{display:block;font-family:'Schibsted Grotesk',sans-serif;font-size:clamp(24px,2.8vw,30px);letter-spacing:-.02em;line-height:1.1;color:var(--papel)}
+.destaque-numeros span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--papel-56)}
+.destaque .stack-lista{margin-top:16px}
+.destaque .stack-lista li{background:var(--painel);border-color:var(--borda-escura);color:var(--papel-78)}
+.destaque-corpo .destaque-nota{margin-top:14px;font-size:12.5px;color:var(--papel-56)}
+
 /* ---------- Projetos ---------- */
 .projetos{display:grid;gap:clamp(28px,4vw,52px)}
 .projeto{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,56px);align-items:center}
@@ -338,6 +372,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
   .stats{grid-template-columns:repeat(2,1fr)}
   .sobre-grid{grid-template-columns:1fr}
   .projeto{grid-template-columns:1fr}
+  .destaque-corpo{grid-template-columns:1fr}
   .projeto .projeto-texto,.projeto .projeto-painel,
   .projeto:nth-child(even) .projeto-texto,.projeto:nth-child(even) .projeto-painel{order:0}
 }
@@ -709,6 +744,41 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
   </div>
 </section>
 
+<!-- ============ DESTAQUE ============ -->
+<section class="band-dark band destaque" id="destaque" aria-labelledby="t-destaque">
+  <div class="wrap">
+    <div class="cabeca" style="margin-bottom:clamp(28px,4vw,44px)">
+      <p class="olho olho-claro">Destaque</p>
+      <h2 id="t-destaque">A temporada 2026 do Flamengo, jogo a jogo, em Power BI</h2>
+      <p>Um relatório que se lê como uma reportagem: cada página responde uma pergunta sobre o ano rubro-negro.</p>
+    </div>
+    <a class="destaque-capa" href="https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9" target="_blank" rel="noopener" aria-label="Abrir o painel Flamengo 2026 no Power BI, em nova aba">
+      <!-- destaques/flamengo-2026-capa.jpg, capa do relatório capturada em 29/09/2026, 1572x880. -->
+      <img src="destaques/flamengo-2026-capa.jpg" alt="Capa do painel Flamengo 2026: 53 jogos, 32 vitórias, 103 gols e 67,3% de aproveitamento, ao lado de fotos de três jogadores" width="1572" height="880" loading="lazy" decoding="async">
+      <span class="destaque-abre" aria-hidden="true">Abrir o painel <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg></span>
+    </a>
+    <div class="destaque-corpo">
+      <div>
+        <span class="tag">Power BI publicado</span>
+        <h3>Flamengo 2026</h3>
+        <p>Dado de futebol costuma chegar como tabela solta de placar, e ninguém enxerga o ano inteiro de uma vez. Escrevi a coleta em Python sobre a API pública da ESPN, com resumo de cada jogo, lance a lance com coordenadas, tabela e elenco, e estimei xG e xA por distância e ângulo do chute, calibrados na própria temporada.</p>
+        <p>São onze capítulos, da temporada geral à reta final, passando por raio-X de cada competição, mapa de calor, quem decide e perfil individual com percentis por 90 minutos. Os filtros de competição, mês, mando e resultado valem para todos os capítulos, e o relatório inteiro é gerado por código no formato PBIP.</p>
+        <ul class="stack-lista"><li>Python</li><li>API ESPN</li><li>Power BI</li><li>PBIP</li><li>DAX</li><li>Power Query</li></ul>
+        <a class="btn" href="https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9" target="_blank" rel="noopener" style="margin-top:24px">Abrir o painel interativo <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg></a>
+      </div>
+      <div>
+        <ul class="destaque-numeros">
+          <li><strong class="mono">11</strong><span>capítulos navegáveis</span></li>
+          <li><strong class="mono">53</strong><span>jogos em 6 competições</span></li>
+          <li><strong class="mono">4</strong><span>filtros que atravessam o relatório</span></li>
+          <li><strong class="mono">28/09</strong><span>última coleta de dados</span></li>
+        </ul>
+        <p class="destaque-nota">Painel de torcedor, sem vínculo oficial com o clube. Dados: ESPN.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ PROJETOS ============ -->
 <section class="band" id="projetos" aria-labelledby="t-proj">
   <div class="wrap">
@@ -934,7 +1004,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","url":"https://rafapessoa.com.br/","image":"https://rafapessoa.com.br/og-rafael-pessoa.jpg","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"memberOf":{"@type":"Organization","name":"Google Developer Groups Natal","alternateName":"GDG Natal"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","url":"https://rafapessoa.com.br/","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."},{"@type":"ListItem","position":6,"item":{"@type":"CreativeWork","name":"Flamengo 2026","url":"https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9","description":"Relatório em Power BI com a temporada 2026 do Flamengo jogo a jogo, em onze capítulos: resultados, raio-X por competição, mapa de calor, destaques individuais e percentis por 90 minutos, com dados coletados em Python da API pública da ESPN e xG e xA estimados na própria temporada."}}]}</script>
 
 <script>
 /* Marca a barra do topo assim que a página sai do zero, para separar
