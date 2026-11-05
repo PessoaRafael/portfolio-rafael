@@ -242,7 +242,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
   display:flex;align-items:center;flex:0 0 auto;
   gap:clamp(44px,7vw,96px);padding-right:clamp(44px,7vw,96px);
   list-style:none;margin:0;
-  animation:desliza 42s linear infinite;
+  animation:desliza 60s linear infinite;
   will-change:transform;
 }
 @keyframes desliza{from{transform:translateX(0)}to{transform:translateX(-100%)}}
@@ -252,6 +252,9 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 /* Marca quadrada com fundo próprio fica melhor com o canto arredondado do avatar. */
 .marca img[src$="johny-barbearia.jpg"],.marca img[src$="esig.png"],
 .marca img[src$="rits.png"],.marca img[src$="tudo-para-pet.png"]{border-radius:8px}
+/* Marca só de letras pesa mais na mesma altura; a de traço fino precisa de um pouco mais. */
+.marca img[src$="arqrede.png"]{height:clamp(23px,3vw,33px)}
+.marca img[src$="andreza-fama.png"]{height:clamp(38px,5vw,56px)}
 /* Enquanto o arquivo não existe, o nome entra como assinatura. */
 .marca-nome{
   display:none;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;
@@ -324,6 +327,14 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
   font-size:14px;font-weight:600;transition:background 140ms ease,color 140ms ease;
 }
 .btn-projeto:hover{background:var(--anil);color:var(--papel)}
+
+/* A tela do projeto fica em cima da ficha técnica. */
+.painel-tela{display:block;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--regua);background:var(--papel)}
+.painel-tela img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 420ms ease}
+a.painel-tela:hover img{transform:scale(1.012)}
+a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
+.projeto-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.projeto-links .btn-projeto{margin-top:0}
 
 /* ---------- FAQ ---------- */
 .faq{display:grid;gap:10px}
@@ -679,12 +690,24 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <span class="marca-nome" aria-hidden="true">Dança Digital</span>
         </li>
         <li class="marca">
+          <img src="logos/arqrede.png" alt="ArqRede" width="542" height="120" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">ArqRede</span>
+        </li>
+        <li class="marca">
           <img src="logos/johny-barbearia.jpg" alt="Johny Barbearia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Johny Barbearia</span>
         </li>
         <li class="marca">
+          <img src="logos/base-de-projetos.png" alt="BASE de Projetos" width="405" height="150" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">BASE de Projetos</span>
+        </li>
+        <li class="marca">
           <img src="logos/tudo-para-pet.png" alt="Tudo para Pet" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Tudo para Pet</span>
+        </li>
+        <li class="marca">
+          <img src="logos/andreza-fama.png" alt="Andreza Fama Arquitetura" width="431" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Andreza Fama Arquitetura</span>
         </li>
         <li class="marca">
           <img src="logos/rits.png" alt="RITS Tecnologia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -693,6 +716,10 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
         <li class="marca">
           <img src="logos/polyana-diogenes.png" alt="Polyana Diógenes" width="900" height="138" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Polyana Diógenes</span>
+        </li>
+        <li class="marca">
+          <img src="logos/emily-franca.png" alt="Emily França" width="574" height="130" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Emily França</span>
         </li>
         <li class="marca">
           <img src="logos/teleperformance.svg" alt="Teleperformance" width="50" height="53" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -717,12 +744,24 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <span class="marca-nome" aria-hidden="true">Dança Digital</span>
         </li>
         <li class="marca">
+          <img src="logos/arqrede.png" alt="ArqRede" width="542" height="120" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">ArqRede</span>
+        </li>
+        <li class="marca">
           <img src="logos/johny-barbearia.jpg" alt="Johny Barbearia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Johny Barbearia</span>
         </li>
         <li class="marca">
+          <img src="logos/base-de-projetos.png" alt="BASE de Projetos" width="405" height="150" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">BASE de Projetos</span>
+        </li>
+        <li class="marca">
           <img src="logos/tudo-para-pet.png" alt="Tudo para Pet" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Tudo para Pet</span>
+        </li>
+        <li class="marca">
+          <img src="logos/andreza-fama.png" alt="Andreza Fama Arquitetura" width="431" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Andreza Fama Arquitetura</span>
         </li>
         <li class="marca">
           <img src="logos/rits.png" alt="RITS Tecnologia" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -731,6 +770,10 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
         <li class="marca">
           <img src="logos/polyana-diogenes.png" alt="Polyana Diógenes" width="900" height="138" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Polyana Diógenes</span>
+        </li>
+        <li class="marca">
+          <img src="logos/emily-franca.png" alt="Emily França" width="574" height="130" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Emily França</span>
         </li>
         <li class="marca">
           <img src="logos/teleperformance.svg" alt="Teleperformance" width="50" height="53" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -791,12 +834,149 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
       <article class="projeto">
         <div class="projeto-texto">
           <span class="tag">Em produção</span>
+          <h3>ArqRede Hub</h3>
+          <p class="problema">Escritórios de arquitetura perdem horas revisando prancha, conferindo norma e montando lista de compras, e o erro costuma aparecer só na obra.</p>
+          <p>Construí a plataforma da comunidade ArqRede, do site de venda à área logada: Analista de projetos, Corretor de pranchas e Lista de Compras, com login, pagamento, cupons e painel de vendas. Escrevi também um leitor que mede as cotas direto do desenho do PDF, sem depender de IA.</p>
+          <div class="projeto-links">
+          <a class="btn-projeto" href="https://hub.arqrede.com.br/" target="_blank" rel="noopener">
+            Ver o Hub
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
+          </a>
+          <a class="btn-projeto" href="https://arqrede.com.br/" target="_blank" rel="noopener">
+            Ver a ArqRede
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
+          </a>
+          </div>
+        </div>
+        <div class="projeto-painel">
+          <a class="painel-tela" href="https://hub.arqrede.com.br/" target="_blank" rel="noopener" aria-label="Abrir o ArqRede Hub">
+            <img src="projetos/hub-arqrede.webp" alt="Página do ArqRede Hub com o título Menos tempo perdido. Mais solução. e os cartões do Analista, do Corretor e da Lista de Compras" width="1200" height="750" loading="lazy" decoding="async">
+          </a>
+          <div class="painel-topo"><span>01 / ficha técnica</span><span class="estado">no ar</span></div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Stack</p>
+            <ul class="stack-lista"><li>JavaScript</li><li>Vercel</li><li>Redis</li><li>pdf.js</li><li>Gemini</li><li>Claude API</li><li>InfinitePay</li></ul>
+          </div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Resultado ou estado atual</p>
+            <p class="painel-estado">No ar e com vendas reais, em pagamento único, ao lado do site da comunidade ArqRede.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="projeto">
+        <div class="projeto-texto">
+          <span class="tag tag-ocre">Em lançamento</span>
+          <h3>BASE de Projetos</h3>
+          <p class="problema">Escritório de arquitetura toca projeto, comercial e financeiro em lugares separados, e fica difícil enxergar cada trabalho do orçamento à entrega.</p>
+          <p>Construí a plataforma de gestão, que nasceu dentro de um escritório em operação e foi preparada para vários: esteira de projetos, comercial e financeiro conectados, com a logo e as cores de cada escritório e os dados separados por RLS no banco. Fiz também o site, com a abertura em 3D.</p>
+          <a class="btn-projeto" href="https://www.basedeprojetos.com.br/" target="_blank" rel="noopener">
+            Ver o site
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
+          </a>
+        </div>
+        <div class="projeto-painel">
+          <a class="painel-tela" href="https://www.basedeprojetos.com.br/" target="_blank" rel="noopener" aria-label="Abrir o site da BASE de Projetos">
+            <img src="projetos/base-de-projetos.webp" alt="Plataforma BASE de Projetos com a esteira de produção e o painel Perguntar, em tela de demonstração com dados fictícios" width="1200" height="750" loading="lazy" decoding="async">
+          </a>
+          <div class="painel-topo"><span>02 / ficha técnica</span><span class="estado">em lançamento</span></div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Stack</p>
+            <ul class="stack-lista"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Supabase</li><li>PostgreSQL</li><li>three.js</li></ul>
+          </div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Resultado ou estado atual</p>
+            <p class="painel-estado">Site no ar e plataforma em lançamento, com os escritórios parceiros Polyana Diógenes e Andreza Fama.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="projeto">
+        <div class="projeto-texto">
+          <span class="tag tag-ocre">Em implantação</span>
+          <h3>Sistema da clínica Emily França</h3>
+          <p class="problema">A rotina da psicóloga passava por fichas de papel, e prontuário de paciente pede sigilo de verdade.</p>
+          <p>Construí o sistema da clínica para o celular e o computador: fichas, prontuário, agenda com marcação pelo próprio paciente, documentos em PDF e financeiro. Prontuário e CPF são cifrados com AES-256-GCM, e toda tabela tem RLS forçado no PostgreSQL.</p>
+        </div>
+        <div class="projeto-painel">
+          <div class="painel-tela">
+            <img src="projetos/emily-franca.webp" alt="Agenda semanal do sistema da clínica Emily França, com sessões de pacientes fictícios" width="1200" height="750" loading="lazy" decoding="async">
+          </div>
+          <div class="painel-topo"><span>03 / ficha técnica</span><span class="estado">em implantação</span></div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Stack</p>
+            <ul class="stack-lista"><li>Next.js</li><li>React</li><li>TypeScript</li><li>Tailwind</li><li>Supabase</li><li>PostgreSQL</li></ul>
+          </div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Resultado ou estado atual</p>
+            <p class="painel-estado">Publicado e em implantação com a clínica, com mais de 1.100 testes automatizados. Sistema privado, e a tela acima usa dados fictícios.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="projeto">
+        <div class="projeto-texto">
+          <span class="tag">Em produção</span>
+          <h3>Andreza Fama Arquitetura</h3>
+          <p class="problema">O escritório atende clientes em todo o Brasil e precisava de um site que mostrasse o portfólio e levasse a pessoa direto para a conversa.</p>
+          <p>Construí o site em Astro, com portfólio, especialidades, depoimentos e contato pelo WhatsApp. A página tem dados estruturados e llms.txt, pensados para a busca no Google e para respostas de IA.</p>
+          <a class="btn-projeto" href="https://www.andrezafama.com.br/" target="_blank" rel="noopener">
+            Ver no ar
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
+          </a>
+        </div>
+        <div class="projeto-painel">
+          <a class="painel-tela" href="https://www.andrezafama.com.br/" target="_blank" rel="noopener" aria-label="Abrir o site de Andreza Fama Arquitetura">
+            <img src="projetos/andreza-fama.webp" alt="Página inicial do site de Andreza Fama Arquitetura com o título Do imaginário a experiências únicas e a foto de um projeto de loja" width="1200" height="750" loading="lazy" decoding="async">
+          </a>
+          <div class="painel-topo"><span>04 / ficha técnica</span><span class="estado">no ar</span></div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Stack</p>
+            <ul class="stack-lista"><li>Astro</li><li>TypeScript</li><li>Vercel</li><li>Schema.org</li></ul>
+          </div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Resultado ou estado atual</p>
+            <p class="painel-estado">No ar no domínio do escritório, com a página de links da bio do Instagram no mesmo projeto.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="projeto">
+        <div class="projeto-texto">
+          <span class="tag">Em produção</span>
+          <h3>Johny Barbearia</h3>
+          <p class="problema">Marcar corte dependia de mandar mensagem e esperar resposta, então a agenda vivia na cabeça de quem atendia e o cliente nunca sabia se o horário estava garantido.</p>
+          <p>Construí o site de agendamento com catálogo de quinze serviços com preço e duração fechados, escolha de barbeiro e horário em quatro passos, clube de assinatura mensal e painel para a barbearia acompanhar a agenda. A entrada é por chave de acesso, sem e-mail nem senha, e quem prefere conversar marca escrevendo em texto livre no chat.</p>
+          <a class="btn-projeto" href="https://barbearia-phi-nine.vercel.app/" target="_blank" rel="noopener">
+            Ver no ar
+            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
+          </a>
+        </div>
+        <div class="projeto-painel">
+          <a class="painel-tela" href="https://barbearia-phi-nine.vercel.app/" target="_blank" rel="noopener" aria-label="Abrir o site da Johny Barbearia">
+            <img src="projetos/johny-barbearia.webp" alt="Página inicial da Johny Barbearia com o título Sua cadeira marcada em menos de um minuto" width="1200" height="750" loading="lazy" decoding="async">
+          </a>
+          <div class="painel-topo"><span>05 / ficha técnica</span><span class="estado">no ar</span></div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Stack</p>
+            <ul class="stack-lista"><li>Next.js</li><li>React</li><li>Vercel</li></ul>
+          </div>
+          <div class="painel-bloco">
+            <p class="painel-rotulo">Resultado ou estado atual</p>
+            <p class="painel-estado">No ar e em uso pela barbearia, em Natal, com três barbeiros na agenda e três planos do Clube Johny.</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="projeto">
+        <div class="projeto-texto">
+          <span class="tag">Em produção</span>
           <h3>Dança Digital</h3>
           <p class="problema">Organizadores de festival de dança dependiam de planilhas manuais para pontuar, ranquear e montar a ordem de apresentações.</p>
           <p>Construí a plataforma de gestão com módulos de pontuação, ranking e ordem de apresentações, mais a automação das planilhas em Python.</p>
         </div>
         <div class="projeto-painel">
-          <div class="painel-topo"><span>01 / ficha técnica</span><span class="estado">ativo</span></div>
+          <div class="painel-topo"><span>06 / ficha técnica</span><span class="estado">ativo</span></div>
           <div class="painel-bloco">
             <p class="painel-rotulo">Stack</p>
             <ul class="stack-lista"><li>FastAPI</li><li>Vue</li><li>MySQL</li><li>Python</li><li>openpyxl</li></ul>
@@ -816,7 +996,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <p>Construí a ferramenta web com segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only.</p>
         </div>
         <div class="projeto-painel">
-          <div class="painel-topo"><span>02 / ficha técnica</span><span class="estado">em uso</span></div>
+          <div class="painel-topo"><span>07 / ficha técnica</span><span class="estado">em uso</span></div>
           <div class="painel-bloco">
             <p class="painel-rotulo">Stack</p>
             <ul class="stack-lista"><li>Go</li><li>Docker</li><li>TOTP</li></ul>
@@ -836,7 +1016,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <p>Montei um pipeline de cinco etapas que leva dado anonimizado até narrativa visual.</p>
         </div>
         <div class="projeto-painel">
-          <div class="painel-topo"><span>03 / ficha técnica</span><span class="estado">apresentado</span></div>
+          <div class="painel-topo"><span>08 / ficha técnica</span><span class="estado">apresentado</span></div>
           <div class="painel-bloco">
             <p class="painel-rotulo">Stack</p>
             <ul class="stack-lista"><li>Gemini</li><li>NotebookLM</li><li>Looker Studio</li></ul>
@@ -856,7 +1036,7 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <p>Fiz a coleta via web scraping e integração com AWS Simba, o tratamento em Pandas e NumPy, e o modelo semântico com DAX e Power Query.</p>
         </div>
         <div class="projeto-painel">
-          <div class="painel-topo"><span>04 / ficha técnica</span><span class="estado">em operação</span></div>
+          <div class="painel-topo"><span>09 / ficha técnica</span><span class="estado">em operação</span></div>
           <div class="painel-bloco">
             <p class="painel-rotulo">Stack</p>
             <ul class="stack-lista"><li>Python</li><li>Pandas</li><li>NumPy</li><li>AWS Simba</li><li>Power BI</li><li>DAX</li></ul>
@@ -864,30 +1044,6 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
           <div class="painel-bloco">
             <p class="painel-rotulo">Resultado ou estado atual</p>
             <p class="painel-estado">Eliminou as extrações manuais diárias e cortou até 40% do tempo de processamento.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="projeto">
-        <div class="projeto-texto">
-          <span class="tag">Em produção</span>
-          <h3>Johny Barbearia</h3>
-          <p class="problema">Marcar corte dependia de mandar mensagem e esperar resposta, então a agenda vivia na cabeça de quem atendia e o cliente nunca sabia se o horário estava garantido.</p>
-          <p>Construí o site de agendamento com catálogo de dezesseis serviços com preço e duração fechados, escolha de barbeiro e horário em quatro passos, clube de assinatura mensal e painel para a barbearia acompanhar a agenda. A entrada é por chave de acesso, sem e-mail nem senha, e quem prefere conversar marca escrevendo em texto livre no chat.</p>
-          <a class="btn-projeto" href="https://barbearia-phi-nine.vercel.app/" target="_blank" rel="noopener">
-            Ver no ar
-            <svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M6 3h7v7M13 3 4 12"></path></svg>
-          </a>
-        </div>
-        <div class="projeto-painel">
-          <div class="painel-topo"><span>05 / ficha técnica</span><span class="estado">no ar</span></div>
-          <div class="painel-bloco">
-            <p class="painel-rotulo">Stack</p>
-            <ul class="stack-lista"><li>Next.js</li><li>React</li><li>Vercel</li></ul>
-          </div>
-          <div class="painel-bloco">
-            <p class="painel-rotulo">Resultado ou estado atual</p>
-            <p class="painel-estado">No ar e em uso pela barbearia, em Natal, com três barbeiros na agenda e três planos do Clube Johny.</p>
           </div>
         </div>
       </article>
@@ -999,12 +1155,12 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 </section>
 
 <!-- ============ DADOS ESTRUTURADOS ============ -->
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"RankMyApp"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"ESIG Software"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Dança Digital"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"Johny Barbearia"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Tudo para Pet"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"RITS"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Polyana Diógenes"}},{"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Teleperformance"}},{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"Google Developer Groups Natal"}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"RankMyApp"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"ESIG Software"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Dança Digital"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"ArqRede"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Johny Barbearia"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"BASE de Projetos"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Tudo para Pet"}},{"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Andreza Fama Arquitetura"}},{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"RITS"}},{"@type":"ListItem","position":10,"item":{"@type":"Organization","name":"Polyana Diógenes"}},{"@type":"ListItem","position":11,"item":{"@type":"Organization","name":"Emily França"}},{"@type":"ListItem","position":12,"item":{"@type":"Organization","name":"Teleperformance"}},{"@type":"ListItem","position":13,"item":{"@type":"Organization","name":"Google Developer Groups Natal"}}]}</script>
 
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","url":"https://rafapessoa.com.br/","image":"https://rafapessoa.com.br/og-rafael-pessoa.jpg","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"memberOf":{"@type":"Organization","name":"Google Developer Groups Natal","alternateName":"GDG Natal"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","url":"https://rafapessoa.com.br/","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":3,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":4,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."},{"@type":"ListItem","position":6,"item":{"@type":"CreativeWork","name":"Flamengo 2026","url":"https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9","description":"Relatório em Power BI com a temporada 2026 do Flamengo jogo a jogo, em onze capítulos: resultados, raio-X por competição, mapa de calor, destaques individuais e percentis por 90 minutos, com dados coletados em Python da API pública da ESPN e xG e xA estimados na própria temporada."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"ArqRede Hub","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://hub.arqrede.com.br/","description":"Plataforma de soluções para escritórios de arquitetura, com Analista de projetos, Corretor de pranchas e Lista de Compras, venda online e leitor de cotas em PDF."}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"BASE de Projetos","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://www.basedeprojetos.com.br/","description":"Plataforma de gestão para escritórios de arquitetura, com esteira de projetos, comercial e financeiro conectados e dados separados por escritório."}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Sistema da clínica Emily França","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Sistema de clínica de psicologia com fichas, prontuário cifrado, agenda, documentos em PDF e financeiro."}},{"@type":"ListItem","position":4,"item":{"@type":"WebSite","name":"Andreza Fama Arquitetura","url":"https://www.andrezafama.com.br/","description":"Site do escritório de arquitetura comercial, em Astro, com portfólio, especialidades, depoimentos e dados estruturados."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":8,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":9,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":10,"item":{"@type":"CreativeWork","name":"Flamengo 2026","url":"https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9","description":"Relatório em Power BI com a temporada 2026 do Flamengo jogo a jogo, em onze capítulos: resultados, raio-X por competição, mapa de calor, destaques individuais e percentis por 90 minutos, com dados coletados em Python da API pública da ESPN e xG e xA estimados na própria temporada."}}]}</script>
 
 <script>
 /* Marca a barra do topo assim que a página sai do zero, para separar
