@@ -171,6 +171,12 @@ T = {
  "E-mail": "Email", "Telefone": "Phone", "Local": "Location",
  "Natal/RN, Brasil": "Natal, RN, Brazil",
  "Rafael Pessoa, 2026. Todos os direitos reservados.": "Rafael Pessoa, 2026. All rights reserved.",
+ "O estúdio de arquitetura infantil atende famílias a distância e precisava de uma página que explicasse os pacotes e levasse a família direto para a conversa.": "The children's architecture studio works with families remotely and needed a page that explained its packages and took families straight to a conversation.",
+ "Construí a landing de vendas em Astro, com carrossel de abertura, quiz Monte seu universo, projetos, pacotes, Clube TumTum, perguntas frequentes e WhatsApp. A página tem dados estruturados, llms.txt e analytics que só carrega depois do consentimento de cookies.": "I built the sales landing page in Astro, with an opening carousel, the Monte seu universo quiz, projects, packages, Clube TumTum, FAQ and WhatsApp. The page has structured data, llms.txt and analytics that only loads after cookie consent.",
+ "Abrir o site da TumTum": "Open the TumTum site",
+ "Página inicial da TumTum com o título Crianças merecem mais que espaços comuns e a foto de uma brinquedoteca": "TumTum home page with the title Crianças merecem mais que espaços comuns and a photo of a playroom",
+ "No ar no domínio do estúdio, com política de privacidade e banner de cookies.": "Live on the studio's domain, with a privacy policy and cookie banner.",
+ "Landing de vendas de estúdio de arquitetura infantil, em Astro, com quiz, pacotes, dados estruturados e consentimento de cookies.": "Sales landing page for a children's architecture studio, in Astro, with a quiz, packages, structured data and cookie consent.",
  # dados estruturados
  "Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou": "Companies, clients and community Rafael Pessoa has worked with",
  "Análise de dados": "Data analysis", "Modelagem de dados": "Data modeling",
@@ -235,7 +241,7 @@ for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', s, r
     varrer(json.loads(m.group(1)))
 
 # marcas, títulos citados e o nome em português que precisa ficar
-NOMES = re.compile(r"Dança Digital|Diógenes|França|Menos tempo perdido|Do imaginário|Sua cadeira|Ler esta página|Barbearia|Arquitetura|BASE de Projetos|Tudo para Pet|Clube Johny|Rio Grande do Norte")
+NOMES = re.compile(r"Monte seu universo|Crianças merecem|Dança Digital|Diógenes|França|Menos tempo perdido|Do imaginário|Sua cadeira|Ler esta página|Barbearia|Arquitetura|BASE de Projetos|Tudo para Pet|Clube Johny|Rio Grande do Norte")
 PT = re.compile(r"[ãõçáéíóúâêô]|\b(de|da|em|com|para|que|uma|não|os|na)\b", re.I)
 sobrou = sorted({x for x in t.achados if PT.search(x) and not NOMES.search(x) and not re.match(r"https?:|mailto:", x) and "@" not in x and "résumé" not in x})
 if sobrou:
