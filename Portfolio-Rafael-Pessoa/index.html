@@ -10,7 +10,7 @@
 <meta name="geo.region" content="BR-RN">
 <meta name="geo.placename" content="Natal, Rio Grande do Norte">
 <meta name="ICBM" content="-5.7945, -35.2110">
-<meta name="theme-color" content="#14171A">
+<meta name="theme-color" content="#0B0C0E">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack em Natal/RN">
 <meta name="twitter:description" content="Análise de dados de ponta a ponta em SQL, Python e Power BI, e sistemas próprios em produção com FastAPI e Vue. Natal/RN, atendimento remoto em todo o Brasil.">
@@ -28,213 +28,235 @@
 <meta name="twitter:image" content="https://rafapessoa.com.br/og-rafael-pessoa.jpg">
 
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%2314171A'/%3E%3Ctext x='16' y='21' text-anchor='middle' font-family='Helvetica,Arial,sans-serif' font-weight='700' font-size='15' fill='%23EDEEE9'%3ERP%3C/text%3E%3C/svg%3E">
+<link rel="alternate" hreflang="pt-BR" href="https://rafapessoa.com.br/">
+<link rel="alternate" hreflang="en" href="https://rafapessoa.com.br/en/">
+<link rel="alternate" hreflang="x-default" href="https://rafapessoa.com.br/">
+<script>try{if(localStorage.getItem("tema")==="claro")document.documentElement.dataset.tema="claro"}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&amp;family=Onest:wght@400;500;600&amp;family=Schibsted+Grotesk:wght@600;700&amp;display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Host+Grotesk:wght@400;500;600;700&amp;family=IBM+Plex+Mono:wght@400&amp;display=swap">
 
 <style>
+/* Console de dados: a página fala a língua de quem vive em query e painel, sem abrir mão da
+   leitura. Sem caixa em volta de conteúdo: a estrutura vem de fio e alinhamento. Mono só no que
+   é código de verdade (rótulo SQL e ORDER BY), e a cor de sinal é uma só. */
 :root{
-  --papel:#EDEEE9;
-  --superficie:#F3F4F0;
-  --tinta:#14171A;
-  --painel:#1D2126;
-  --borda-escura:#2E343B;
-  --anil:#1F3A6E;
-  --anil-fundo:#3A63AE;
-  --anil-link:#4B72B8;
-  --anil-claro:#8FB0E8;
-  --ocre:#8A5712;
-  --regua:#C9CBC4;
+  --fundo:#0B0C0E;
+  --texto:#E6E8EB;
+  --apoio:#A9B0BA;
+  --fio:#25282E;
+  --fio-forte:#3D424B;
+  --texto-2:#C9CED6;
+  --sinal:#FFB224;
+  --claro:#E6E8EB;
+  --botao:#FFB224;
+  --botao-texto:#0B0C0E;
 
-  /* Derivados por transparência, todos a partir da paleta acima. */
-  --tinta-72:rgba(20,23,26,.72);
-  --tinta-84:rgba(20,23,26,.84);
-  --tinta-50:rgba(20,23,26,.5);
-  --papel-78:rgba(237,238,233,.78);
-  --papel-72:rgba(237,238,233,.72);
-  --papel-56:rgba(237,238,233,.56);
-  --anil-tint:rgba(31,58,110,.1);
-  --ocre-tint:rgba(138,87,18,.12);
+  --gap:clamp(20px,3vw,48px);
+  --borda:clamp(16px,3.4vw,56px);
+
+  --titulo:'Host Grotesk',system-ui,sans-serif;
+  --ui:'Host Grotesk',system-ui,sans-serif;
+  --codigo:'IBM Plex Mono',ui-monospace,SFMono-Regular,monospace;
+
+  /* Marcas de canto, como as de uma área de seleção: enquadram sem fechar uma caixa. */
+  --cantos:
+    linear-gradient(var(--sinal) 0 0) 0 0/16px 2px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 0 0/2px 16px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 100% 0/16px 2px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 100% 0/2px 16px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 0 100%/16px 2px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 0 100%/2px 16px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 100% 100%/16px 2px no-repeat,
+    linear-gradient(var(--sinal) 0 0) 100% 100%/2px 16px no-repeat;
+}
+
+/* Modo claro: a mesma página, com o âmbar escurecido só onde ele é texto. */
+html[data-tema="claro"]{
+  --fundo:#F3F4F6;--texto:#15171B;--texto-2:#3A3F48;--apoio:#59606B;
+  --fio:#DCDFE4;--fio-forte:#B8BDC6;--sinal:#B05E00;--claro:#15171B;
+  color-scheme:light;
 }
 
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:76px;-webkit-text-size-adjust:100%}
+html{color-scheme:dark;scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%;background:var(--fundo)}
 body{
-  background:var(--papel);
-  color:var(--tinta);
-  font-family:'Onest',system-ui,sans-serif;
-  font-size:16px;
-  line-height:1.6;
+  background:var(--fundo);color:var(--texto);
+  font-family:var(--ui);font-size:17.5px;line-height:1.6;
   overflow-x:clip; /* clip no lugar de hidden, hidden quebra position:sticky */
+  -webkit-font-smoothing:antialiased;
 }
-h1,h2,h3{font-family:'Schibsted Grotesk',system-ui,sans-serif;font-weight:700;line-height:1.1}
-a{color:var(--anil)}
+::selection{background:var(--sinal);color:var(--fundo)}
+h1,h2,h3{font-family:var(--titulo);font-weight:700;letter-spacing:-.032em;line-height:1.08;text-wrap:balance}
+a{color:inherit}
 img,svg{max-width:100%}
-.mono{font-family:'Geist Mono',ui-monospace,SFMono-Regular,monospace;font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
+p{text-wrap:pretty}
+.mono{font-family:var(--ui);font-variant-numeric:tabular-nums;font-feature-settings:"tnum" 1}
 
-:focus-visible{outline:2px solid var(--anil);outline-offset:2px;border-radius:3px}
-.band-dark :focus-visible{outline-color:var(--anil-claro)}
+:focus-visible{outline:2px solid var(--sinal);outline-offset:3px}
 
 .pular{
   position:absolute;left:-9999px;top:0;z-index:100;
-  background:var(--papel);color:var(--tinta);padding:10px 16px;border-radius:0 0 5px 0;
+  background:var(--sinal);color:var(--fundo);padding:10px 16px;
   font-size:14px;font-weight:600;text-decoration:none;
 }
 .pular:focus{left:0}
 .oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}
 
-.wrap{max-width:1180px;margin:0 auto}
-.wrap-md{max-width:900px;margin:0 auto}
-.band-dark{background:var(--tinta);color:var(--papel)}
-.band{padding:clamp(52px,8vw,96px) clamp(14px,3vw,28px);border-bottom:1px solid var(--regua)}
+.wrap,.wrap-md{max-width:1328px;margin:0 auto}
+.wrap-md{max-width:1000px}
+.band{padding:clamp(52px,6.4vw,92px) var(--borda);border-bottom:1px solid var(--fio)}
 
-.olho{font-size:12px;letter-spacing:.14em;text-transform:uppercase;margin-bottom:12px}
-.olho-anil{color:var(--anil)}
-.olho-claro{color:var(--anil-claro)}
-.cabeca{text-align:center;margin-bottom:clamp(32px,5vw,54px)}
-.cabeca h2{font-size:clamp(28px,3.8vw,40px);letter-spacing:-.028em;margin:0}
-.cabeca p{margin:12px auto 0;max-width:60ch;font-size:15.5px;color:var(--tinta-72)}
-.band-dark .cabeca p{color:var(--papel-72)}
+/* O rótulo da seção vira a consulta que a traz. O texto continua sendo o do HTML. */
+.olho{font-family:var(--codigo);font-size:14px;line-height:1.4;color:var(--texto);text-transform:lowercase;margin-bottom:14px}
+.olho::before{content:"SELECT * FROM ";color:var(--sinal);text-transform:none}
+.olho::after{content:";";color:var(--apoio)}
+.cabeca{margin-bottom:clamp(30px,4vw,52px)}
+.cabeca h2{max-width:21em;font-size:clamp(31px,4.1vw,58px)}
+.cabeca p:not(.olho){margin-top:14px;max-width:64ch;font-size:18px;color:var(--apoio)}
 
 /* ---------- Topo ---------- */
-.topo{padding:0 clamp(14px,3vw,28px) clamp(48px,7vw,88px)}
+.topo{position:relative;overflow:hidden;padding:0 var(--borda) clamp(44px,5vw,72px);border-bottom:1px solid var(--fio)}
+.topo>.wrap{position:relative;z-index:1}
+.campo{
+  position:absolute;inset:0;width:100%;height:100%;pointer-events:none;
+  -webkit-mask-image:linear-gradient(90deg,transparent 30%,rgba(0,0,0,.16) 50%,#000 72%),linear-gradient(180deg,#000 82%,transparent 99%);
+          mask-image:linear-gradient(90deg,transparent 30%,rgba(0,0,0,.16) 50%,#000 72%),linear-gradient(180deg,#000 82%,transparent 99%);
+  -webkit-mask-composite:source-in;mask-composite:intersect;
+}
 
-/* A barra carrega o próprio fundo escuro, assim nada aparece por trás da
-   navegação flutuante quando ela passa sobre as faixas claras. */
 .topo-nav{
-  position:sticky;top:0;z-index:40;
-  background:var(--tinta);
-  padding:10px clamp(14px,3vw,28px);
-  border-bottom:1px solid transparent;
-  transition:border-color 160ms ease,box-shadow 160ms ease;
+  position:sticky;top:0;z-index:40;background:var(--fundo);
+  padding:0 var(--borda);border-bottom:1px solid var(--fio);
 }
-.topo-nav.rolou{border-bottom-color:var(--borda-escura);box-shadow:0 8px 24px rgba(20,23,26,.35)}
-
-.nav{
-  display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
-  background:var(--painel);border:1px solid var(--borda-escura);border-radius:6px;
-  padding:7px 14px;
-}
-.nav-marca{font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:15px;letter-spacing:-.01em;color:var(--papel);text-decoration:none;white-space:nowrap}
-.nav-links{display:flex;gap:6px;font-size:13.5px}
-.nav-links a{color:var(--papel-72);text-decoration:none;padding:7px 12px;border-radius:4px;white-space:nowrap;transition:color 140ms ease,background 140ms ease}
-.nav-links a:hover{color:var(--papel);background:var(--borda-escura)}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;min-height:58px}
+.nav-marca{font-family:var(--titulo);font-weight:700;font-size:18px;letter-spacing:-.02em;text-decoration:none;white-space:nowrap}
+.nav-links{display:flex;gap:clamp(16px,2.6vw,36px);font-size:15.5px;font-weight:500}
+.nav-links a{color:var(--apoio);text-decoration:none;white-space:nowrap;transition:color 120ms ease}
+.nav-links a:hover{color:var(--sinal)}
 .nav-acoes{display:flex;align-items:center;gap:12px}
-.nav-social{display:flex;gap:12px}
-.nav-social a{color:var(--papel-72);display:flex;transition:color 140ms ease}
-.nav-social a:hover{color:var(--papel)}
+.nav-social{display:flex;gap:14px}
+.nav-social a{display:flex;color:var(--apoio);transition:color 120ms ease}
+.nav-social a:hover{color:var(--sinal)}
+.nav-idioma{font-size:15px;font-weight:600;color:var(--apoio);text-decoration:none;transition:color 120ms ease}
+.nav-idioma:hover{color:var(--sinal)}
+.nav-tema{display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;background:none;border:0;color:var(--apoio);cursor:pointer;transition:color 120ms ease}
+.nav-tema:hover{color:var(--sinal)}
+.nav-tema .icone-lua,html[data-tema="claro"] .nav-tema .icone-sol{display:none}
+html[data-tema="claro"] .nav-tema .icone-lua{display:block}
 .nav-abre{
-  display:none;align-items:center;justify-content:center;width:40px;height:40px;
-  background:none;border:1px solid var(--borda-escura);border-radius:5px;
-  color:var(--papel);cursor:pointer;transition:background 140ms ease,border-color 140ms ease;
+  display:none;align-items:center;justify-content:center;width:44px;height:44px;margin-right:-10px;
+  background:none;border:0;color:inherit;cursor:pointer;
 }
-.nav-abre:hover{background:var(--borda-escura);border-color:var(--anil-link)}
 .nav-abre .icone-fecha,.nav[data-aberto="sim"] .nav-abre .icone-menu{display:none}
 .nav[data-aberto="sim"] .nav-abre .icone-fecha{display:block}
 
 .hero{
-  display:grid;grid-template-columns:1fr 300px;gap:clamp(30px,6vw,72px);align-items:center;
-  padding:clamp(34px,4.5vw,60px) 0 clamp(30px,4vw,48px);
+  display:grid;grid-template-columns:minmax(0,1fr) clamp(200px,20vw,288px);gap:clamp(30px,5vw,72px);align-items:end;
+  padding:clamp(40px,6vw,88px) 0 clamp(40px,5vw,72px);
 }
-.hero h1{font-size:clamp(34px,5.4vw,62px);line-height:1.03;letter-spacing:-.033em;margin:20px 0 0;max-width:16ch;text-wrap:balance}
-.hero-sub{margin:20px 0 0;max-width:50ch;font-size:17px;line-height:1.62;color:var(--papel-72)}
+.hero h1{font-size:clamp(34px,6.5vw,98px);line-height:1.03;letter-spacing:-.038em}
+.hero h1 span{display:block;white-space:nowrap}
+.hero h1 em{font-style:normal;color:var(--sinal)}
+.hero-sub{margin-top:24px;max-width:54ch;font-size:19.5px;line-height:1.5;color:var(--texto-2)}
 
-.etiqueta{display:inline-flex;align-items:stretch;border:1px solid var(--borda-escura);border-radius:4px;overflow:hidden;font-family:'Geist Mono',ui-monospace,monospace}
-.etiqueta-a{display:inline-flex;align-items:center;gap:8px;background:var(--anil-fundo);color:var(--papel);padding:7px 11px;font-size:11px;letter-spacing:.16em;text-transform:uppercase}
-.etiqueta-b{display:inline-flex;align-items:center;background:var(--painel);color:var(--papel-78);padding:7px 13px;font-size:12px;letter-spacing:.02em}
-.pulso{width:6px;height:6px;border-radius:50%;background:var(--papel);animation:pulso 2.4s ease-in-out infinite}
-@keyframes pulso{0%,100%{opacity:1}50%{opacity:.35}}
+.acoes{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:30px}
+.disponivel{margin-top:18px;font-size:16.5px;color:var(--apoio)}
+.btn,.btn-linha{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-size:16px;font-weight:600}
+.btn{background:var(--botao);color:var(--botao-texto);padding:14px 22px;transition:background 120ms ease,color 120ms ease}
+.btn:hover{background:var(--claro);color:var(--fundo)}
+.btn-linha{border:1px solid var(--fio-forte);background:var(--fundo);color:var(--texto);padding:13px 20px;transition:border-color 120ms ease,color 120ms ease}
+.btn-linha:hover{border-color:var(--sinal);color:var(--sinal)}
 
-.acoes{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-top:30px}
-.btn,.btn-linha{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-size:14.5px;border-radius:5px}
-.btn{background:var(--anil-fundo);color:var(--papel);font-weight:600;padding:14px 24px;transition:background 140ms ease}
-.btn:hover{background:var(--anil-link)}
-.btn-linha{border:1px solid var(--borda-escura);background:var(--painel);color:var(--papel);font-weight:500;padding:13px 22px;transition:border-color 140ms ease,background 140ms ease}
-.btn-linha:hover{border-color:var(--anil-link);background:var(--borda-escura)}
-
-.retrato{position:relative;width:292px;height:292px;max-width:100%;border-radius:50%;overflow:hidden;justify-self:end;background:var(--anil)}
+.retrato{position:relative;width:100%;aspect-ratio:1;justify-self:end;background:var(--fio)}
+.retrato::after{content:"";position:absolute;inset:-10px;z-index:3;background:var(--cantos);pointer-events:none}
 .retrato img{position:relative;z-index:2;width:100%;height:100%;object-fit:cover;display:block}
-/* Duotone anil desligado. Para voltar, é só somar a classe retrato--duotone na figure. */
-.retrato--duotone img{filter:grayscale(1) contrast(1.06)}
-.retrato--duotone::after{content:"";position:absolute;inset:0;z-index:3;background:var(--anil);mix-blend-mode:color;pointer-events:none}
 .retrato-vazio{
   position:absolute;inset:0;z-index:1;display:flex;align-items:center;justify-content:center;
-  background:var(--painel);color:var(--papel);
-  font-family:'Geist Mono',ui-monospace,monospace;font-size:64px;letter-spacing:-.04em;
+  color:var(--texto);font-size:64px;letter-spacing:-.04em;
 }
 
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.stat{border:1px solid var(--borda-escura);background:var(--painel);border-radius:6px;padding:16px 18px}
-.stat-num{font-family:'Geist Mono',ui-monospace,monospace;font-size:30px;font-weight:600;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
-.stat-txt{font-size:13px;color:var(--papel-72);margin-top:6px;line-height:1.4}
+.topo .olho{margin-bottom:12px;font-family:var(--ui);font-size:15.5px;color:var(--apoio);text-transform:none}
+.topo .olho::before,.topo .olho::after{content:none}
+.stats{max-width:min(58%,780px);border-top:1px solid var(--fio-forte)}
+.stat{
+  position:relative;display:grid;grid-template-columns:clamp(150px,17vw,244px) minmax(0,1fr);column-gap:20px;align-items:center;
+  padding:15px 0;border-bottom:1px solid var(--fio);
+}
+.stat-num{font-weight:700;font-size:clamp(40px,4.9vw,70px);line-height:1;letter-spacing:-.035em;color:var(--sinal);white-space:nowrap}
+.stat-txt{font-size:clamp(17px,1.45vw,20px);line-height:1.3;color:var(--texto-2)}
+/* Cada linha sai do texto e termina num ponto sobre o relevo: é uma anotação do gráfico. */
+.stat::after{content:"";position:absolute;left:100%;bottom:-1px;width:var(--pino);height:1px;background:var(--sinal);opacity:.6}
+.stat::before{content:"";position:absolute;left:calc(100% + var(--pino));bottom:-4px;width:7px;height:7px;background:var(--sinal)}
+.stat:nth-child(1){--pino:12vw}
+.stat:nth-child(2){--pino:23vw}
+.stat:nth-child(3){--pino:8vw}
+.stat:nth-child(4){--pino:17vw}
 
 /* ---------- Sobre ---------- */
-.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,4vw,56px);align-items:start}
-.sobre-grid p{font-size:16.5px;line-height:1.68}
-.fluxo{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin-top:26px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px}
-.fluxo span.passo{border:1px solid var(--regua);background:var(--superficie);border-radius:4px;padding:7px 11px}
-.fluxo span.seta{color:var(--tinta-72)}
-.fluxo span.fim{border:1px solid var(--anil);background:var(--anil);color:var(--papel);border-radius:4px;padding:7px 11px}
-.fichas{display:grid;gap:10px}
-.ficha{border:1px solid var(--regua);background:var(--superficie);border-radius:6px;padding:16px 18px}
-.ficha dt{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-72);margin-bottom:7px}
-.ficha dd{font-size:15px;line-height:1.55;margin:0}
-/* Selos de programa. Mesma caixa das fichas, só que mais apertada e com a marca. */
-.coluna-lateral{display:grid;gap:10px;align-content:start}
-.selos{display:grid;gap:8px}
+.sobre-grid{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(30px,6vw,88px);align-items:start}
+.sobre-grid p{font-size:18.5px;line-height:1.62}
+.fluxo{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 10px;margin-top:24px;font-size:16.5px!important;font-weight:600}
+.fluxo .seta{color:var(--sinal)}
+.fluxo .fim{color:var(--sinal)}
+.coluna-lateral{display:grid;align-content:start}
+.selos{display:grid}
 .selo{
-  display:flex;align-items:center;gap:11px;
-  border:1px solid var(--regua);background:var(--superficie);border-radius:6px;
-  padding:12px 16px;font-size:15px;font-weight:600;letter-spacing:-.01em;
+  display:flex;align-items:center;gap:11px;padding:13px 0;border-top:1px solid var(--fio);
+  font-size:16.5px!important;font-weight:500;line-height:1.3!important;
 }
 .selo svg,.marca-selo{flex:0 0 auto}
-.marca-selo{height:20px;width:auto}
+.marca-selo{height:18px;width:auto}
+.fichas{display:grid}
+.ficha{padding:14px 0;border-top:1px solid var(--fio)}
+.ficha:last-child{border-bottom:1px solid var(--fio)}
+.ficha dt{margin-bottom:4px;font-size:15px;font-weight:600;color:var(--sinal)}
+.ficha dd{font-size:16px;line-height:1.5;color:var(--texto)}
 
 /* ---------- Experiência ---------- */
 .tabela-topo{
-  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  background:var(--tinta);color:var(--papel);border-radius:6px 6px 0 0;padding:11px 16px;
-  font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;
+  display:flex;align-items:baseline;justify-content:space-between;gap:6px 16px;flex-wrap:wrap;
+  padding-bottom:12px;font-size:15px;
 }
-.tabela-topo .contagem{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--papel-56)}
-.tabela-rolagem{overflow-x:auto;border:1px solid var(--regua);border-top:0;border-radius:0 0 6px 6px;background:var(--superficie)}
+#ordem-status{font-family:var(--codigo);font-size:14px;color:var(--sinal)}
+.tabela-topo .contagem{color:var(--apoio)}
+.tabela-rolagem{overflow-x:auto;border-top:1px solid var(--fio-forte)}
 table{width:100%;min-width:820px;border-collapse:collapse;font-variant-numeric:tabular-nums}
-thead th{background:var(--superficie);padding:0;border-bottom:1px solid var(--regua);text-align:left}
+thead th{padding:0;border-bottom:1px solid var(--fio-forte);text-align:left}
 th button{
   width:100%;display:flex;gap:6px;align-items:center;background:none;border:0;cursor:pointer;
-  font-family:'Onest',sans-serif;font-size:12px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
-  color:var(--tinta);padding:13px 16px;text-align:left;transition:color 140ms ease;
+  font-family:var(--ui);font-size:15px;font-weight:600;color:var(--apoio);padding:12px 16px 12px 0;text-align:left;
+  transition:color 120ms ease;
 }
-th button:hover{color:var(--anil)}
-th.col-periodo{width:158px}
-th.col-resultado{width:252px}
-th.col-resultado button{justify-content:flex-end;text-align:right}
-.ind{
-  flex:0 0 auto;display:inline-block;width:1em;text-align:center;
-  font-family:'Geist Mono',ui-monospace,monospace;font-size:9px;line-height:1;
-  color:var(--tinta-50);
-}
-th[aria-sort="ascending"] .ind,th[aria-sort="descending"] .ind{color:var(--anil)}
-tbody tr{border-bottom:1px solid var(--regua)}
-tbody tr:hover{background:rgba(201,203,196,.35)}
-tbody td{padding:15px 16px;vertical-align:top}
-td.c-empresa{font-size:15px;font-weight:600;letter-spacing:-.01em}
-td.c-periodo{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;color:var(--tinta-72);white-space:nowrap}
-td.c-funcao{font-size:14px;line-height:1.45}
-/* Nível dentro do cargo, em mono para ler como grau e não como número solto. */
-.nivel{font-family:'Geist Mono',ui-monospace,monospace;font-size:12.5px;font-weight:500;color:var(--anil);letter-spacing:.04em}
-td.c-stack{font-size:13px;line-height:1.55;color:var(--tinta-72)}
-td.c-resultado{text-align:right}
-td.c-resultado .num{font-family:'Geist Mono',ui-monospace,monospace;font-size:14px;font-weight:600;font-variant-numeric:tabular-nums;color:var(--tinta)}
-table.destaca-resultado td.c-resultado .num{color:var(--ocre)}
-td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-top:4px}
-.nota-tabela{font-size:12px;color:var(--tinta-72);margin-top:10px}
+th button:hover{color:var(--sinal)}
+th[aria-sort="ascending"] button,th[aria-sort="descending"] button{color:var(--texto)}
+th.col-periodo{width:176px}
+th.col-resultado{width:262px}
+th.col-resultado button{justify-content:flex-end;text-align:right;padding-right:0}
+.ind{flex:0 0 auto;display:inline-block;width:1em;text-align:center;font-size:9px;line-height:1;color:var(--fio-forte)}
+th[aria-sort="ascending"] .ind,th[aria-sort="descending"] .ind{color:var(--sinal)}
+tbody tr{border-bottom:1px solid var(--fio);transition:background 120ms ease}
+tbody tr:hover{background:rgba(255,178,36,.05)}
+tbody td{padding:15px 16px 15px 0;vertical-align:top}
+td.c-empresa{font-size:17px;font-weight:600;line-height:1.3}
+td.c-periodo{font-size:15px;line-height:1.4;color:var(--apoio);white-space:nowrap}
+/* Faixa de tempo: a mesma data da célula, desenhada na escala da carreira. */
+.barra{display:block;position:relative;height:3px;margin-top:9px;background:var(--fio)}
+.barra i{position:absolute;top:0;bottom:0;background:var(--sinal)}
+td.c-funcao{font-size:16px;line-height:1.4}
+.nivel{font-weight:600;color:var(--sinal)}
+td.c-stack{font-size:15px;line-height:1.45;color:var(--apoio)}
+td.c-resultado{text-align:right;padding-right:0}
+td.c-resultado .num{font-size:19px;font-weight:700;letter-spacing:-.015em;line-height:1.3}
+table.destaca-resultado td.c-resultado .num{color:var(--sinal)}
+td.c-resultado .txt{margin-top:3px;font-size:15px;line-height:1.4;color:var(--apoio)}
+.nota-tabela{display:none;font-size:13px;color:var(--apoio);margin-top:10px}
 
 /* ---------- Empresas e clientes ---------- */
 /* Esteira contínua: duas trilhas idênticas deslizando lado a lado.
    Quando a primeira sai inteira, a segunda já ocupou o lugar dela. */
 .esteira{
-  display:flex;overflow:hidden;
+  display:flex;overflow:hidden;margin:0 calc(var(--borda) * -1);padding:6px 0;
   -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
           mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
 }
@@ -249,215 +271,195 @@ td.c-resultado .txt{font-size:13px;line-height:1.5;color:var(--tinta-72);margin-
 .esteira:hover .esteira-trilha,.esteira:focus-within .esteira-trilha{animation-play-state:paused}
 .marca{display:flex;align-items:center;justify-content:center;flex:0 0 auto}
 .marca img{height:clamp(32px,4.2vw,46px);width:auto;max-width:none;display:block}
-/* Marca quadrada com fundo próprio fica melhor com o canto arredondado do avatar. */
+/* As marcas escuras têm versão em logos/escuro, com a mesma cor mais clara: o script troca no
+   modo escuro. A da Teleperformance é preto puro, então basta inverter. */
+html:not([data-tema="claro"]) .marca img[src$="teleperformance.svg"]{filter:brightness(0) invert(1)}
 .marca img[src$="johny-barbearia.jpg"],.marca img[src$="esig.png"],
 .marca img[src$="rits.png"],.marca img[src$="tudo-para-pet.png"]{border-radius:8px}
 /* Marca só de letras pesa mais na mesma altura; a de traço fino precisa de um pouco mais. */
 .marca img[src$="arqrede.png"]{height:clamp(23px,3vw,33px)}
 .marca img[src$="andreza-fama.png"]{height:clamp(38px,5vw,56px)}
 /* Enquanto o arquivo não existe, o nome entra como assinatura. */
-.marca-nome{
-  display:none;font-family:'Schibsted Grotesk',sans-serif;font-weight:600;
-  font-size:clamp(16px,2vw,20px);letter-spacing:-.02em;color:var(--tinta-72);white-space:nowrap;
-}
+.marca-nome{display:none;font-family:var(--titulo);font-weight:600;font-size:clamp(16px,1.9vw,20px);color:var(--apoio);white-space:nowrap}
 .sem-marca .marca-nome{display:block}
 
 /* ---------- Destaque ---------- */
-.destaque{border-bottom:0}
-.destaque-capa{
-  display:block;position:relative;border:1px solid var(--borda-escura);border-radius:8px;
-  overflow:hidden;background:var(--painel);text-decoration:none;
-}
+.destaque-capa{display:block;position:relative;overflow:hidden;text-decoration:none}
 .destaque-capa img{display:block;width:100%;height:auto;transition:transform 420ms ease}
 .destaque-capa:hover img{transform:scale(1.012)}
 .destaque-abre{
-  position:absolute;top:14px;right:14px;display:inline-flex;align-items:center;gap:8px;
-  background:rgba(20,23,26,.84);border:1px solid var(--borda-escura);border-radius:5px;
-  color:var(--papel);font-size:13px;font-weight:600;padding:8px 12px;
-  transition:border-color 140ms ease,background 140ms ease;
+  position:absolute;top:0;right:0;display:inline-flex;align-items:center;gap:8px;
+  background:var(--botao);color:var(--botao-texto);font-size:15px;font-weight:600;padding:9px 14px;
 }
-.destaque-capa:hover .destaque-abre{border-color:var(--anil-link);background:var(--tinta)}
 .destaque-corpo{
-  display:grid;grid-template-columns:1.15fr 1fr;gap:clamp(24px,4vw,56px);align-items:start;
-  margin-top:clamp(26px,3.5vw,40px);
+  display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(26px,6vw,88px);align-items:start;
+  margin-top:clamp(28px,3.5vw,44px);
 }
-.destaque-corpo h3{font-size:clamp(21px,2.6vw,27px);letter-spacing:-.022em;margin:14px 0 10px;line-height:1.15}
-.destaque-corpo p{font-size:15.5px;line-height:1.6;color:var(--papel-72);max-width:52ch}
+.destaque-corpo h3{font-size:clamp(27px,2.9vw,40px);margin:14px 0 12px}
+.destaque-corpo p{font-size:17.5px;line-height:1.6;color:var(--apoio);max-width:62ch}
 .destaque-corpo p+p{margin-top:12px}
-.destaque .tag{color:var(--anil-claro);background:rgba(143,176,232,.12)}
-.destaque-numeros{
-  display:grid;grid-template-columns:repeat(2,1fr);gap:1px;list-style:none;
-  background:var(--borda-escura);border:1px solid var(--borda-escura);border-radius:6px;overflow:hidden;
-}
-.destaque-numeros li{background:var(--painel);padding:16px 18px}
-.destaque-numeros strong{display:block;font-family:'Schibsted Grotesk',sans-serif;font-size:clamp(24px,2.8vw,30px);letter-spacing:-.02em;line-height:1.1;color:var(--papel)}
-.destaque-numeros span{display:block;margin-top:4px;font-size:13px;line-height:1.4;color:var(--papel-56)}
 .destaque .stack-lista{margin-top:16px}
-.destaque .stack-lista li{background:var(--painel);border-color:var(--borda-escura);color:var(--papel-78)}
-.destaque-corpo .destaque-nota{margin-top:14px;font-size:12.5px;color:var(--papel-56)}
+.destaque-numeros{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--gap);list-style:none}
+.destaque-numeros li{padding:14px 0 16px;border-top:1px solid var(--fio)}
+.destaque-numeros strong{display:block;font-family:var(--titulo);font-weight:700;font-size:clamp(36px,3.8vw,54px);letter-spacing:-.03em;line-height:1.05;color:var(--sinal);white-space:nowrap}
+.destaque-numeros span{display:block;margin-top:6px;font-size:15.5px;line-height:1.35;color:var(--apoio)}
+.destaque-corpo .destaque-nota{margin-top:10px;font-size:13.5px}
 
 /* ---------- Projetos ---------- */
-.projetos{display:grid;gap:clamp(28px,4vw,52px)}
-.projeto{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,56px);align-items:center}
+.projetos{display:grid}
+.projeto{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(24px,5vw,72px);align-items:center;
+  padding:clamp(36px,4.6vw,64px) 0;border-top:1px solid var(--fio);
+}
+.projeto:first-child{border-top-color:var(--fio-forte)}
+.projeto:last-child{padding-bottom:0}
 .projeto:nth-child(even) .projeto-texto{order:1}
 .projeto:nth-child(even) .projeto-painel{order:0}
-.projeto h3{font-size:clamp(21px,2.6vw,27px);letter-spacing:-.022em;margin:14px 0 10px;line-height:1.15}
-.tag{display:inline-block;font-size:12px;font-weight:600;letter-spacing:.04em;border-radius:4px;padding:5px 10px;color:var(--anil);background:var(--anil-tint)}
-.tag-ocre{color:var(--ocre);background:var(--ocre-tint)}
-.projeto-texto p{font-size:15.5px;line-height:1.6;max-width:46ch}
-.projeto-texto .problema{color:var(--tinta-84);margin-bottom:14px}
-.projeto-painel{border:1px solid var(--regua);background:var(--superficie);border-radius:6px;overflow:hidden}
+.projeto-painel{min-width:0}
+.projeto h3{font-size:clamp(27px,2.9vw,40px);margin:12px 0 14px}
+.tag{display:inline-flex;align-items:center;gap:9px;font-size:15px;font-weight:600;line-height:1.4;color:var(--sinal)}
+.tag::before{content:"";width:8px;height:8px;background:currentColor;box-shadow:inset 0 0 0 1.5px currentColor}
+.tag-ocre::before{background:none}
+.projeto-texto p{font-size:17px;line-height:1.58;color:var(--apoio);max-width:52ch}
+.projeto-texto .problema{margin-bottom:12px;font-size:19px;line-height:1.5;color:var(--texto)}
 .painel-topo{
-  display:flex;align-items:center;justify-content:space-between;gap:12px;padding:11px 16px;
-  border-bottom:1px solid var(--regua);font-family:'Geist Mono',ui-monospace,monospace;
-  font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--tinta-72);
+  display:flex;align-items:baseline;justify-content:space-between;gap:12px;padding:12px 0 10px;
+  border-bottom:1px solid var(--fio-forte);font-size:15px;color:var(--apoio);
 }
-.painel-topo .estado{color:var(--anil)}
-.painel-bloco{padding:16px}
-.painel-bloco+.painel-bloco{border-top:1px solid var(--regua)}
-.painel-rotulo{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--tinta-72);margin-bottom:9px}
-.stack-lista{display:flex;flex-wrap:wrap;gap:7px;font-family:'Geist Mono',ui-monospace,monospace;font-size:12px;list-style:none}
-.stack-lista li{border:1px solid var(--regua);background:var(--papel);border-radius:4px;padding:6px 10px}
-.painel-estado{font-size:15px;line-height:1.55}
+.painel-topo .estado{color:var(--sinal)}
+.painel-bloco{
+  display:grid;grid-template-columns:minmax(0,3fr) minmax(0,8fr);column-gap:20px;align-items:baseline;
+  padding:11px 0;border-bottom:1px solid var(--fio);
+}
+.painel-rotulo{font-size:15px;line-height:1.4;color:var(--apoio)}
+.stack-lista{list-style:none;font-size:15.5px;line-height:1.55;color:var(--texto)}
+.stack-lista li{display:inline}
+.stack-lista li:not(:last-child)::after{content:" / ";color:var(--sinal)}
+.painel-estado{font-size:16px;line-height:1.5}
 /* Botão só existe em projeto com link público. */
 .btn-projeto{
   display:inline-flex;align-items:center;gap:8px;margin-top:18px;
-  border:1px solid var(--anil);border-radius:5px;padding:10px 16px;
-  background:var(--papel);color:var(--anil);text-decoration:none;
-  font-size:14px;font-weight:600;transition:background 140ms ease,color 140ms ease;
+  font-size:16px;font-weight:600;color:var(--sinal);text-decoration:none;
+  transition:color 120ms ease;
 }
-.btn-projeto:hover{background:var(--anil);color:var(--papel)}
+.btn-projeto:hover{color:var(--claro)}
 
 /* A tela do projeto fica em cima da ficha técnica. */
-.painel-tela{display:block;aspect-ratio:16/10;overflow:hidden;border-bottom:1px solid var(--regua);background:var(--papel)}
+.painel-tela{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;background:var(--fio)}
+.painel-tela::after{content:"";position:absolute;inset:0;background:var(--cantos);pointer-events:none}
 .painel-tela img{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform 420ms ease}
 a.painel-tela:hover img{transform:scale(1.012)}
-a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
-.projeto-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
+.projeto-links{display:flex;flex-wrap:wrap;gap:6px 24px;margin-top:18px}
 .projeto-links .btn-projeto{margin-top:0}
 
-/* ---------- FAQ ---------- */
-.faq{display:grid;gap:10px}
-.faq details{border:1px solid var(--borda-escura);background:var(--painel);border-radius:6px}
+/* ---------- Perguntas ---------- */
+.faq details{border-top:1px solid var(--fio)}
+.faq details:first-child{border-top-color:var(--fio-forte)}
+.faq details:last-child{border-bottom:1px solid var(--fio)}
 .faq summary{
-  display:flex;align-items:center;gap:16px;padding:16px 18px;cursor:pointer;list-style:none;
-  font-family:'Schibsted Grotesk',sans-serif;font-weight:600;font-size:16.5px;letter-spacing:-.012em;color:var(--papel);
+  display:flex;align-items:center;gap:16px;padding:16px 0;cursor:pointer;list-style:none;
+  font-size:19px;font-weight:600;line-height:1.35;transition:color 120ms ease;
 }
+.faq summary:hover{color:var(--sinal)}
 .faq summary::-webkit-details-marker{display:none}
 .faq summary span:first-child{flex:1}
-.mais{
-  display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;flex:0 0 auto;
-  border:1px solid var(--borda-escura);border-radius:5px;color:var(--anil-claro);transition:transform 160ms ease;
-}
+.mais{display:inline-flex;flex:0 0 auto;color:var(--sinal);transition:transform 160ms ease}
 .faq details[open] .mais{transform:rotate(45deg)}
-.faq .resposta{padding:0 18px 18px;font-size:15.5px;line-height:1.65;color:var(--papel-72);max-width:68ch}
+.faq .resposta{padding-bottom:20px;max-width:70ch;font-size:17px;line-height:1.6;color:var(--apoio)}
 
 /* ---------- Contato ---------- */
-.contato{padding:0 clamp(14px,3vw,28px) clamp(52px,7vw,88px)}
-.contato-caixa{border-top:1px solid var(--borda-escura);padding-top:clamp(44px,6vw,72px)}
-.lista-contato{border:1px solid var(--borda-escura);border-radius:6px;overflow:hidden;background:var(--painel)}
-.lista-contato>*{display:flex;align-items:center;gap:14px;padding:15px 18px;text-decoration:none;color:var(--papel)}
-.lista-contato>*+*{border-top:1px solid var(--borda-escura)}
-.lista-contato a:hover{background:var(--borda-escura)}
-.lista-contato svg{flex:0 0 auto}
-.rotulo{width:104px;flex:0 0 auto;font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:var(--papel-56)}
-.valor{font-size:15.5px;word-break:break-word}
+.contato{padding:clamp(52px,6.4vw,92px) var(--borda) clamp(28px,4vw,44px)}
+.lista-contato>*{
+  display:grid;grid-template-columns:18px 120px minmax(0,1fr);column-gap:14px;align-items:center;
+  padding:13px 0;border-top:1px solid var(--fio);text-decoration:none;transition:color 120ms ease;
+}
+.lista-contato>:first-child{border-top-color:var(--fio-forte)}
+.lista-contato>:last-child{border-bottom:1px solid var(--fio)}
+.lista-contato a:hover{color:var(--sinal)}
+.lista-contato svg{color:var(--sinal)}
+.rotulo{font-size:15px;color:var(--apoio)}
+.lista-contato .valor{font-family:var(--ui);font-size:18px;font-weight:500;word-break:break-word}
 .rodape{
   display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
-  margin-top:clamp(38px,5vw,64px);padding-top:20px;border-top:1px solid var(--borda-escura);
-  font-size:13px;color:var(--papel-56);
+  margin-top:clamp(40px,5vw,64px);font-size:14.5px;color:var(--apoio);
 }
 .rodape-social{display:flex;gap:14px}
-.rodape-social a{
-  display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;
-  border:1px solid var(--borda-escura);border-radius:5px;color:var(--anil-claro);
-  transition:border-color 140ms ease,background 140ms ease,color 140ms ease;
-}
-.rodape-social a:hover{border-color:var(--anil-link);background:var(--painel);color:var(--papel)}
+.rodape-social a{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;transition:color 120ms ease}
+.rodape-social a:hover{color:var(--sinal)}
 
 /* ---------- Responsivo ---------- */
 @media (max-width:900px){
-  .hero{grid-template-columns:1fr;gap:34px}
-  .retrato{justify-self:start;width:220px;height:220px}
-  .retrato-vazio{font-size:48px}
-  .stats{grid-template-columns:repeat(2,1fr)}
-  .sobre-grid{grid-template-columns:1fr}
-  .projeto{grid-template-columns:1fr}
-  .destaque-corpo{grid-template-columns:1fr}
+  .campo{
+    -webkit-mask-image:linear-gradient(90deg,rgba(0,0,0,.2) 20%,#000 90%),linear-gradient(180deg,rgba(0,0,0,.5) 0,#000 40%,transparent 78%);
+            mask-image:linear-gradient(90deg,rgba(0,0,0,.2) 20%,#000 90%),linear-gradient(180deg,rgba(0,0,0,.5) 0,#000 40%,transparent 78%);
+  }
+  .stats{max-width:none}
+  .stat::after,.stat::before{content:none}
+  .hero{grid-template-columns:minmax(0,1fr);gap:40px}
+  .hero h1{font-size:clamp(34px,10.8vw,88px)}
+  html[lang="en"] .hero h1{font-size:clamp(29px,9.3vw,80px)} /* a linha mais longa em inglês tem dois caracteres a mais */
+  .retrato{justify-self:start;width:min(62%,300px);margin-left:10px}
+  .sobre-grid,.destaque-corpo,.projeto{grid-template-columns:minmax(0,1fr)}
   .projeto .projeto-texto,.projeto .projeto-painel,
   .projeto:nth-child(even) .projeto-texto,.projeto:nth-child(even) .projeto-painel{order:0}
+  .nota-tabela{display:block}
 }
 /* Abaixo de 700px a tabela viraria 820px de rolagem lateral, então cada linha
    vira um bloco com rótulo e valor, e os cabeçalhos viram botões de ordenação. */
 @media (max-width:700px){
   .tabela-rolagem{overflow-x:visible}
   table{min-width:0;display:block}
-  thead{display:block;border-bottom:1px solid var(--regua)}
-  thead tr{display:flex;flex-wrap:wrap;gap:6px;padding:10px}
-  thead th,thead th.col-periodo,thead th.col-resultado{display:block;width:auto;border-bottom:0;background:none}
-  th button,th.col-resultado button{
-    width:auto;justify-content:flex-start;text-align:left;
-    border:1px solid var(--regua);border-radius:4px;background:var(--papel);
-    padding:9px 11px;font-size:11px;
-  }
-  th[aria-sort="ascending"] button,th[aria-sort="descending"] button{
-    border-color:var(--anil);color:var(--anil);background:var(--anil-tint);
-  }
+  thead{display:block;border-bottom:1px solid var(--fio-forte)}
+  thead tr{display:flex;flex-wrap:wrap;gap:0 16px;padding:6px 0}
+  thead th,thead th.col-periodo,thead th.col-resultado{display:block;width:auto;border-bottom:0}
+  th button,th.col-resultado button{width:auto;justify-content:flex-start;text-align:left;padding:8px 0}
   tbody,tbody tr{display:block}
-  tbody tr{padding:14px 16px}
+  tbody tr{padding:14px 0}
   tbody tr:last-child{border-bottom:0}
-  tbody td{
-    display:grid;grid-template-columns:82px 1fr;gap:10px;align-items:start;
-    padding:5px 0;text-align:left;
-  }
-  tbody td::before{
-    content:attr(data-rot);padding-top:2px;
-    font-family:'Geist Mono',ui-monospace,monospace;font-size:10.5px;
-    letter-spacing:.1em;text-transform:uppercase;color:var(--tinta-72);
-  }
-  td.c-empresa{display:block;font-size:17px;padding-bottom:8px}
+  tbody tr:hover{background:none}
+  tbody td{display:grid;grid-template-columns:82px 1fr;gap:10px;align-items:baseline;padding:4px 0;text-align:left}
+  tbody td::before{content:attr(data-rot);font-size:14.5px;color:var(--apoio)}
+  td.c-empresa{display:block;padding-bottom:8px;font-size:18px}
   td.c-empresa::before{content:none}
   tbody td.c-resultado{text-align:left} /* vence o text-align:right do desktop */
   td.c-resultado>div{grid-column:2}
   td.c-resultado .num:empty{display:none}
+  .barra{grid-column:2;margin-top:2px}
   .nota-tabela{display:none} /* não há mais rolagem horizontal para avisar */
+  .painel-bloco{grid-template-columns:minmax(0,1fr);row-gap:3px}
 }
 
 /* Abaixo de 760px os cinco links não cabem numa linha, então viram menu. */
+@media (max-width:420px){
+  .nav-social{display:none} /* os três perfis continuam no Contato */
+}
 @media (max-width:760px){
   .nav{gap:10px}
   .nav-abre{display:inline-flex}
   .nav-links{
-    order:3;width:100%;flex-direction:column;gap:2px;
-    margin-top:10px;padding-top:10px;border-top:1px solid var(--borda-escura);
+    order:3;width:100%;flex-direction:column;gap:0;
+    padding:6px 0 10px;border-top:1px solid var(--fio);
   }
   .nav:not([data-aberto="sim"]) .nav-links{display:none}
   .nav[data-aberto="sim"] .nav-links{animation:abre-menu 160ms ease}
-  .nav-links a{padding:12px;font-size:15px} /* alvo de toque de 45px */
+  .nav-links a{padding:12px 0;font-size:16px} /* alvo de toque de 45px */
 }
 @keyframes abre-menu{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:none}}
 
 @media (max-width:640px){
-  .stats{grid-template-columns:1fr}
-  .hero{padding:26px 0 30px;gap:28px} /* no celular o conteúdo começa logo abaixo da barra */
-  .hero h1{margin-top:16px}
-  .hero-sub{margin-top:14px}
-  .acoes{gap:12px;margin-top:22px}
-  .btn,.btn-linha{width:100%;justify-content:center}
-  .lista-contato>*{flex-wrap:wrap}
-  .rotulo{width:auto}
-}
-@media (max-width:380px){
-  body{font-size:15px}
-  .retrato{width:180px;height:180px}
-  .retrato-vazio{font-size:40px}
+  .stat{grid-template-columns:128px minmax(0,1fr);column-gap:12px;padding:13px 0}
+  .stat-num{font-size:34px}
+  .acoes .btn,.acoes .btn-linha{width:100%;justify-content:center}
+  .lista-contato>*{grid-template-columns:18px minmax(0,1fr);row-gap:1px}
+  .lista-contato .valor{grid-column:2}
 }
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   .esteira{overflow-x:auto;-webkit-mask-image:none;mask-image:none}
   .esteira-trilha{animation:none!important;transform:none!important}
   .esteira-trilha[aria-hidden="true"]{display:none}
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-delay:0ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
 }
 </style>
 <noscript><style>
@@ -490,6 +492,8 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
         <a href="https://www.instagram.com/rpessoab/" target="_blank" rel="noopener" aria-label="Instagram"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.6"></rect><circle cx="8" cy="8" r="2.9"></circle><circle cx="11.6" cy="4.4" r="0.8" fill="currentColor" stroke="none"></circle></svg></a>
         <a href="https://github.com/PessoaRafael" target="_blank" rel="noopener" aria-label="GitHub"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .8a7.3 7.3 0 0 0-2.3 14.2c.4.1.5-.1.5-.4v-1.3c-2 .4-2.5-.5-2.7-1-.1-.2-.6-1-.9-1.2-.3-.2-.7-.5 0-.5.6 0 1 .6 1.2.9.7 1.1 1.8.8 2.3.6.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.8.3-1.5.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .6-.2 2 .8a7 7 0 0 1 3.8 0c1.4-1 2-.8 2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.8-3.6 4 .3.3.6.8.6 1.6v2.3c0 .3.1.5.5.4A7.3 7.3 0 0 0 8 .8Z"></path></svg></a>
       </div>
+        <a class="nav-idioma" href="en/" hreflang="en" lang="en" aria-label="Read this page in English">EN</a>
+        <button class="nav-tema" type="button" id="nav-tema" aria-label="Mudar para o modo claro"><svg class="icone-sol" width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="8" cy="8" r="3"></circle><path d="M8 1v2M8 13v2M1 8h2M13 8h2M3 3l1.4 1.4M11.6 11.6 13 13M13 3l-1.4 1.4M4.4 11.6 3 13"></path></svg><svg class="icone-lua" width="17" height="17" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M13.5 9.6A5.8 5.8 0 0 1 6.4 2.5a5.8 5.8 0 1 0 7.1 7.1Z"></path></svg></button>
         <button class="nav-abre" type="button" id="nav-abre" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menu">
           <svg class="icone-menu" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M2 4h12M2 8h12M2 12h12"></path></svg>
           <svg class="icone-fecha" width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3.5 3.5l9 9M12.5 3.5l-9 9"></path></svg>
@@ -500,21 +504,19 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 </header>
 
 <section class="band-dark topo" aria-labelledby="t-hero">
+  <canvas class="campo" id="campo" aria-hidden="true"></canvas>
   <div class="wrap">
 
     <div class="hero" id="topo">
       <div>
-        <p class="etiqueta">
-          <span class="etiqueta-a"><span class="pulso" aria-hidden="true"></span>disponível</span>
-          <span class="etiqueta-b">novos projetos, remoto ou híbrido</span>
-        </p>
-        <h1 id="t-hero">Modelo o dado e construo o sistema que gera o dado.</h1>
+        <h1 id="t-hero"><span>Modelo <em>o dado</em> e</span> <span>construo o sistema</span> <span>que gera <em>o dado</em>.</span></h1>
         <p class="hero-sub">Rafael Pessoa, Analista de Dados Pleno e Desenvolvedor Fullstack Pleno em Natal. Consulta em SQL, automação em Python, modelo semântico no Power BI, e a aplicação em FastAPI e Vue que produz o número.</p>
         <div class="acoes">
           <a class="btn" href="#projetos">Ver projetos<svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="M2.5 8h10M9 4.5 12.5 8 9 11.5"></path></svg></a>
-          <a class="btn-linha" href="#contato"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#8FB0E8" stroke-width="1.5" aria-hidden="true"><path d="M14 10.5A1.5 1.5 0 0 1 12.5 12H5l-3 2.5V3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5Z"></path></svg>Falar comigo</a>
-          <a class="btn-linha" href="CV_RafaelPessoa_AnalistaDadosSenior.pdf" download><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="#8FB0E8" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3 3-3M2.5 12.5v1h11v-1"></path></svg>Baixar currículo</a>
+          <a class="btn-linha" href="#contato"><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 10.5A1.5 1.5 0 0 1 12.5 12H5l-3 2.5V3.5A1.5 1.5 0 0 1 3.5 2h9A1.5 1.5 0 0 1 14 3.5Z"></path></svg>Falar comigo</a>
+          <a class="btn-linha" href="CV_RafaelPessoa_AnalistaDadosSenior.pdf" download><svg width="15" height="15" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0L5 7m3 3 3-3M2.5 12.5v1h11v-1"></path></svg>Baixar currículo</a>
         </div>
+        <p class="disponivel">Disponível para novos projetos, remoto ou híbrido.</p>
       </div>
       <figure class="retrato" id="retrato">
         <!-- foto-rafael.jpg, busto recortado da foto do GDG Natal, 584x584.
@@ -524,7 +526,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
       </figure>
     </div>
 
-    <p class="olho" style="color:var(--papel-56)">o que já está rodando</p>
+    <p class="olho">o que já está rodando</p>
     <div class="stats">
       <div class="stat">
         <div class="stat-num">+10</div>
@@ -634,7 +636,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
           <tr data-empresa="RankMyApp" data-start="202401" data-funcao="Analista de Dados Pleno II" data-stack="Power BI, DAX, Python, SQL, web scraping" data-score="35">
             <td class="c-empresa" data-rot="Empresa">RankMyApp</td>
             <td class="c-periodo" data-rot="Período">01/2024 até hoje</td>
-            <td class="c-funcao" data-rot="Função">Analista de Dados Pleno <span class="nivel">II</span></td>
+            <td class="c-funcao" data-rot="Função"><span>Analista de Dados Pleno <span class="nivel">II</span></span></td>
             <td class="c-stack" data-rot="Stack">Power BI, DAX, Python, SQL, web scraping</td>
             <td class="c-resultado" data-rot="Resultado"><div class="num">+35% / -40%</div><div class="txt">Visibilidade das métricas críticas, e tempo de processamento</div></td>
           </tr>
@@ -990,33 +992,13 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 
       <article class="projeto">
         <div class="projeto-texto">
-          <span class="tag">Interno</span>
-          <h3>SQL Runner</h3>
-          <p class="problema">O time precisava rodar queries em ambiente restrito sem que ninguém recebesse acesso direto ao banco.</p>
-          <p>Construí a ferramenta web com segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only.</p>
-        </div>
-        <div class="projeto-painel">
-          <div class="painel-topo"><span>07 / ficha técnica</span><span class="estado">em uso</span></div>
-          <div class="painel-bloco">
-            <p class="painel-rotulo">Stack</p>
-            <ul class="stack-lista"><li>Go</li><li>Docker</li><li>TOTP</li></ul>
-          </div>
-          <div class="painel-bloco">
-            <p class="painel-rotulo">Resultado ou estado atual</p>
-            <p class="painel-estado">Em uso interno, com todo comando registrado em log que não pode ser reescrito.</p>
-          </div>
-        </div>
-      </article>
-
-      <article class="projeto">
-        <div class="projeto-texto">
           <span class="tag tag-ocre">Palestra</span>
           <h3>Pipeline de data storytelling com IA</h3>
           <p class="problema">Dado bruto de festival não vira argumento sozinho, e a leitura manual travava a conversa com quem decide.</p>
           <p>Montei um pipeline de cinco etapas que leva dado anonimizado até narrativa visual.</p>
         </div>
         <div class="projeto-painel">
-          <div class="painel-topo"><span>08 / ficha técnica</span><span class="estado">apresentado</span></div>
+          <div class="painel-topo"><span>07 / ficha técnica</span><span class="estado">apresentado</span></div>
           <div class="painel-bloco">
             <p class="painel-rotulo">Stack</p>
             <ul class="stack-lista"><li>Gemini</li><li>NotebookLM</li><li>Looker Studio</li></ul>
@@ -1036,7 +1018,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
           <p>Fiz a coleta via web scraping e integração com AWS Simba, o tratamento em Pandas e NumPy, e o modelo semântico com DAX e Power Query.</p>
         </div>
         <div class="projeto-painel">
-          <div class="painel-topo"><span>09 / ficha técnica</span><span class="estado">em operação</span></div>
+          <div class="painel-topo"><span>08 / ficha técnica</span><span class="estado">em operação</span></div>
           <div class="painel-bloco">
             <p class="painel-rotulo">Stack</p>
             <ul class="stack-lista"><li>Python</li><li>Pandas</li><li>NumPy</li><li>AWS Simba</li><li>Power BI</li><li>DAX</li></ul>
@@ -1069,7 +1051,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 
       <details>
         <summary><span>O que você entrega chega a rodar em produção?</span><span class="mais" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"></path></svg></span></summary>
-        <p class="resposta">Sim, e dá para verificar. São mais de dez sistemas próprios em produção. A Dança Digital é usada por organizadores de festival, com pontuação, ranking e ordem de apresentações. O SQL Runner roda internamente e dá acesso auditado ao banco. Não é protótipo de portfólio, tem gente dependendo deles.</p>
+        <p class="resposta">Sim, e dá para verificar. São mais de dez sistemas próprios em produção. A Dança Digital é usada por organizadores de festival, com pontuação, ranking e ordem de apresentações. O ArqRede Hub está no ar com vendas reais. Não é protótipo de portfólio, tem gente dependendo deles.</p>
       </details>
 
       <details>
@@ -1079,7 +1061,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 
       <details>
         <summary><span>Como você lida com dado sensível e LGPD?</span><span class="mais" aria-hidden="true"><svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M8 3v10M3 8h10"></path></svg></span></summary>
-        <p class="resposta">Com controle de acesso e registro, não com confiança. No SQL Runner isso virou produto: segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only, que não pode ser reescrito. No pipeline de storytelling o dado entra anonimizado, então a narrativa nunca depende de identificar ninguém.</p>
+        <p class="resposta">Com controle de acesso, não com confiança. No sistema da clínica Emily França, prontuário e CPF são cifrados com AES-256-GCM e toda tabela tem RLS forçado no PostgreSQL. No pipeline de storytelling o dado entra anonimizado, então a narrativa nunca depende de identificar ninguém.</p>
       </details>
 
       <details>
@@ -1111,32 +1093,32 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 
     <div class="lista-contato">
       <a href="mailto:rafaelpessoa89@hotmail.com">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8FB0E8" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1"></rect><path d="M1.8 4.2 8 8.8l6.2-4.6"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="1.5" y="3.5" width="13" height="9" rx="1"></rect><path d="M1.8 4.2 8 8.8l6.2-4.6"></path></svg>
         <span class="rotulo">E-mail</span>
         <span class="valor">rafaelpessoa89@hotmail.com</span>
       </a>
       <a href="tel:+5584994604608">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8FB0E8" stroke-width="1.4" aria-hidden="true"><path d="M3 2.5h2.6l1 2.6-1.5 1a8 8 0 0 0 3.8 3.8l1-1.5 2.6 1V12a1.5 1.5 0 0 1-1.6 1.5C6.6 13.2 2.8 9.4 2.5 4.1A1.5 1.5 0 0 1 3 2.5Z"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M3 2.5h2.6l1 2.6-1.5 1a8 8 0 0 0 3.8 3.8l1-1.5 2.6 1V12a1.5 1.5 0 0 1-1.6 1.5C6.6 13.2 2.8 9.4 2.5 4.1A1.5 1.5 0 0 1 3 2.5Z"></path></svg>
         <span class="rotulo">Telefone</span>
         <span class="valor mono">(84) 99460-4608</span>
       </a>
       <div>
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8FB0E8" stroke-width="1.4" aria-hidden="true"><path d="M8 14.5s5-4.6 5-8a5 5 0 0 0-10 0c0 3.4 5 8 5 8Z"></path><circle cx="8" cy="6.4" r="1.9"></circle></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><path d="M8 14.5s5-4.6 5-8a5 5 0 0 0-10 0c0 3.4 5 8 5 8Z"></path><circle cx="8" cy="6.4" r="1.9"></circle></svg>
         <span class="rotulo">Local</span>
         <span class="valor">Natal/RN, Brasil</span>
       </div>
       <a href="https://www.linkedin.com/in/rafael-pessoa-4210a31b8/" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="#8FB0E8" aria-hidden="true"><path d="M3.6 5.6H1.4V14h2.2V5.6ZM2.5 1.6a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6ZM14.6 9.2c0-2.3-1.2-3.8-3.2-3.8-1.1 0-1.9.5-2.3 1.2V5.6H6.9V14h2.2V9.6c0-1.1.5-1.8 1.5-1.8s1.5.7 1.5 1.8V14h2.5V9.2Z"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M3.6 5.6H1.4V14h2.2V5.6ZM2.5 1.6a1.3 1.3 0 1 0 0 2.6 1.3 1.3 0 0 0 0-2.6ZM14.6 9.2c0-2.3-1.2-3.8-3.2-3.8-1.1 0-1.9.5-2.3 1.2V5.6H6.9V14h2.2V9.6c0-1.1.5-1.8 1.5-1.8s1.5.7 1.5 1.8V14h2.5V9.2Z"></path></svg>
         <span class="rotulo">LinkedIn</span>
         <span class="valor">in/rafael-pessoa</span>
       </a>
       <a href="https://github.com/PessoaRafael" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="#8FB0E8" aria-hidden="true"><path d="M8 .8a7.3 7.3 0 0 0-2.3 14.2c.4.1.5-.1.5-.4v-1.3c-2 .4-2.5-.5-2.7-1-.1-.2-.6-1-.9-1.2-.3-.2-.7-.5 0-.5.6 0 1 .6 1.2.9.7 1.1 1.8.8 2.3.6.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.8.3-1.5.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .6-.2 2 .8a7 7 0 0 1 3.8 0c1.4-1 2-.8 2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.8-3.6 4 .3.3.6.8.6 1.6v2.3c0 .3.1.5.5.4A7.3 7.3 0 0 0 8 .8Z"></path></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 .8a7.3 7.3 0 0 0-2.3 14.2c.4.1.5-.1.5-.4v-1.3c-2 .4-2.5-.5-2.7-1-.1-.2-.6-1-.9-1.2-.3-.2-.7-.5 0-.5.6 0 1 .6 1.2.9.7 1.1 1.8.8 2.3.6.1-.5.3-.9.5-1.1-1.8-.2-3.6-.9-3.6-4 0-.8.3-1.5.8-2.1-.1-.2-.4-1 .1-2.1 0 0 .6-.2 2 .8a7 7 0 0 1 3.8 0c1.4-1 2-.8 2-.8.5 1.1.2 1.9.1 2.1.5.6.8 1.3.8 2.1 0 3.1-1.9 3.8-3.6 4 .3.3.6.8.6 1.6v2.3c0 .3.1.5.5.4A7.3 7.3 0 0 0 8 .8Z"></path></svg>
         <span class="rotulo">GitHub</span>
         <span class="valor">PessoaRafael</span>
       </a>
       <a href="https://www.instagram.com/rpessoab/" target="_blank" rel="noopener">
-        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="#8FB0E8" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.6"></rect><circle cx="8" cy="8" r="2.9"></circle><circle cx="11.6" cy="4.4" r="0.8" fill="currentColor" stroke="none"></circle></svg>
+        <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true"><rect x="2" y="2" width="12" height="12" rx="3.6"></rect><circle cx="8" cy="8" r="2.9"></circle><circle cx="11.6" cy="4.4" r="0.8" fill="currentColor" stroke="none"></circle></svg>
         <span class="rotulo">Instagram</span>
         <span class="valor">@rpessoab</span>
       </a>
@@ -1157,10 +1139,10 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 <!-- ============ DADOS ESTRUTURADOS ============ -->
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Empresas, clientes e comunidade com quem Rafael Pessoa trabalhou","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"Organization","name":"RankMyApp"}},{"@type":"ListItem","position":2,"item":{"@type":"Organization","name":"ESIG Software"}},{"@type":"ListItem","position":3,"item":{"@type":"Organization","name":"Dança Digital"}},{"@type":"ListItem","position":4,"item":{"@type":"Organization","name":"ArqRede"}},{"@type":"ListItem","position":5,"item":{"@type":"Organization","name":"Johny Barbearia"}},{"@type":"ListItem","position":6,"item":{"@type":"Organization","name":"BASE de Projetos"}},{"@type":"ListItem","position":7,"item":{"@type":"Organization","name":"Tudo para Pet"}},{"@type":"ListItem","position":8,"item":{"@type":"Organization","name":"Andreza Fama Arquitetura"}},{"@type":"ListItem","position":9,"item":{"@type":"Organization","name":"RITS"}},{"@type":"ListItem","position":10,"item":{"@type":"Organization","name":"Polyana Diógenes"}},{"@type":"ListItem","position":11,"item":{"@type":"Organization","name":"Emily França"}},{"@type":"ListItem","position":12,"item":{"@type":"Organization","name":"Teleperformance"}},{"@type":"ListItem","position":13,"item":{"@type":"Organization","name":"Google Developer Groups Natal"}}]}</script>
 
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","url":"https://rafapessoa.com.br/","image":"https://rafapessoa.com.br/og-rafael-pessoa.jpg","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Go","Docker","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"memberOf":{"@type":"Organization","name":"Google Developer Groups Natal","alternateName":"GDG Natal"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o SQL Runner é usado internamente para acesso auditado a banco."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso e registro, não com confiança. No SQL Runner o acesso tem segundo fator TOTP, allowlist de bases, prévia transacional antes de qualquer DML e log de auditoria append-only. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","url":"https://rafapessoa.com.br/","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL, Go, Docker"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
-<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"ArqRede Hub","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://hub.arqrede.com.br/","description":"Plataforma de soluções para escritórios de arquitetura, com Analista de projetos, Corretor de pranchas e Lista de Compras, venda online e leitor de cotas em PDF."}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"BASE de Projetos","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://www.basedeprojetos.com.br/","description":"Plataforma de gestão para escritórios de arquitetura, com esteira de projetos, comercial e financeiro conectados e dados separados por escritório."}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Sistema da clínica Emily França","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Sistema de clínica de psicologia com fichas, prontuário cifrado, agenda, documentos em PDF e financeiro."}},{"@type":"ListItem","position":4,"item":{"@type":"WebSite","name":"Andreza Fama Arquitetura","url":"https://www.andrezafama.com.br/","description":"Site do escritório de arquitetura comercial, em Astro, com portfólio, especialidades, depoimentos e dados estruturados."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"SQL Runner","applicationCategory":"DeveloperApplication","description":"Ferramenta interna para rodar queries em ambiente restrito, com segundo fator TOTP, allowlist de bases, prévia transacional e log de auditoria append-only.","operatingSystem":"Web"}},{"@type":"ListItem","position":8,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":9,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":10,"item":{"@type":"CreativeWork","name":"Flamengo 2026","url":"https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9","description":"Relatório em Power BI com a temporada 2026 do Flamengo jogo a jogo, em onze capítulos: resultados, raio-X por competição, mapa de calor, destaques individuais e percentis por 90 minutos, com dados coletados em Python da API pública da ESPN e xG e xA estimados na própria temporada."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"Person","name":"Rafael Pessoa","url":"https://rafapessoa.com.br/","image":"https://rafapessoa.com.br/og-rafael-pessoa.jpg","jobTitle":["Analista de Dados Pleno","Desenvolvedor Fullstack Pleno"],"email":"mailto:rafaelpessoa89@hotmail.com","telephone":"+5584994604608","address":{"@type":"PostalAddress","addressLocality":"Natal","addressRegion":"RN","addressCountry":"BR"},"sameAs":["https://www.linkedin.com/in/rafael-pessoa-4210a31b8/","https://github.com/PessoaRafael","https://www.instagram.com/rpessoab/"],"knowsLanguage":["pt-BR","en"],"knowsAbout":["Análise de dados","Business Intelligence","Power BI","DAX","Power Query","Modelagem de dados","SQL","Python","Pandas","ETL e automação de relatórios","Web scraping","FastAPI","Vue","MySQL","Data storytelling"],"homeLocation":{"@type":"Place","name":"Natal, Rio Grande do Norte, Brasil"},"seeks":{"@type":"Demand","name":"Vagas e projetos de análise de dados, BI e desenvolvimento fullstack, remoto ou híbrido"},"alumniOf":{"@type":"CollegeOrUniversity","name":"IFRN"},"memberOf":{"@type":"Organization","name":"Google Developer Groups Natal","alternateName":"GDG Natal"},"hasCredential":[{"@type":"EducationalOccupationalCredential","name":"Microsoft PL-300, Power BI Data Analyst Associate"},{"@type":"EducationalOccupationalCredential","name":"Google Student Ambassador 2026","recognizedBy":{"@type":"Organization","name":"Google"}}],"worksFor":[{"@type":"Organization","name":"RankMyApp"},{"@type":"Organization","name":"Dança Digital"}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Eu contrato um analista de dados ou um desenvolvedor?","acceptedAnswer":{"@type":"Answer","text":"Os dois no mesmo profissional. Faço consulta e modelagem em SQL, tratamento e automação em Python, modelo semântico no Power BI, e mantenho aplicação em produção com FastAPI e Vue."}},{"@type":"Question","name":"O que você entrega chega a rodar em produção?","acceptedAnswer":{"@type":"Answer","text":"Sim. Dança Digital é usada por organizadores de festival, e o ArqRede Hub está no ar com vendas reais."}},{"@type":"Question","name":"Meu time não tem engenheiro de dados. Isso trava o projeto?","acceptedAnswer":{"@type":"Answer","text":"Não. Faço a coleta, o tratamento, o modelo e a interface. Na RankMyApp a coleta vem de web scraping e integração com AWS Simba, o tratamento é em Pandas e NumPy, e o modelo semântico é meu em Power BI com DAX e Power Query."}},{"@type":"Question","name":"Como você lida com dado sensível e LGPD?","acceptedAnswer":{"@type":"Answer","text":"Com controle de acesso, não com confiança. No sistema da clínica Emily França, prontuário e CPF são cifrados com AES-256-GCM e toda tabela tem RLS forçado no PostgreSQL. No pipeline de storytelling o dado entra anonimizado."}},{"@type":"Question","name":"Hoje qualquer pessoa monta dashboard e site com IA. Qual é a diferença?","acceptedAnswer":{"@type":"Answer","text":"Uso IA no pipeline de storytelling com Gemini e NotebookLM, e ainda assim o número depende de modelagem correta e de alguém que responda por ele. Meu trabalho é a camada que a IA não faz sozinha: o modelo semântico, o controle de acesso, a auditoria e a conversa com quem decide."}},{"@type":"Question","name":"Você já trabalhou fora do meu setor?","acceptedAnswer":{"@type":"Answer","text":"Marketing de aplicativos na RankMyApp, software de gestão na ESIG, suporte técnico em escala na Teleperformance, produto em estágio na Blacklab Ventures e festivais de dança na Dança Digital."}},{"@type":"Question","name":"Trabalha remoto?","acceptedAnswer":{"@type":"Answer","text":"Sim, remoto ou híbrido. Base em Natal, Rio Grande do Norte."}}]}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ProfilePage","inLanguage":"pt-BR","url":"https://rafapessoa.com.br/","name":"Rafael Pessoa, Analista de Dados e Desenvolvedor Fullstack","about":{"@type":"Person","name":"Rafael Pessoa"},"mainEntity":{"@type":"Person","name":"Rafael Pessoa","hasOccupation":[{"@type":"Occupation","name":"Analista de Dados","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"SQL, Python, Power BI, DAX, Power Query, modelagem de dados, ETL, web scraping"},{"@type":"Occupation","name":"Desenvolvedor Fullstack","occupationLocation":{"@type":"City","name":"Natal, RN"},"skills":"FastAPI, Vue, MySQL"}],"makesOffer":{"@type":"Offer","itemOffered":{"@type":"Service","name":"Consultoria de dados, business intelligence e desenvolvimento fullstack","areaServed":{"@type":"Country","name":"Brasil"}}}}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"ItemList","name":"Projetos de Rafael Pessoa","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"ArqRede Hub","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://hub.arqrede.com.br/","description":"Plataforma de soluções para escritórios de arquitetura, com Analista de projetos, Corretor de pranchas e Lista de Compras, venda online e leitor de cotas em PDF."}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"BASE de Projetos","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://www.basedeprojetos.com.br/","description":"Plataforma de gestão para escritórios de arquitetura, com esteira de projetos, comercial e financeiro conectados e dados separados por escritório."}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Sistema da clínica Emily França","applicationCategory":"BusinessApplication","operatingSystem":"Web","description":"Sistema de clínica de psicologia com fichas, prontuário cifrado, agenda, documentos em PDF e financeiro."}},{"@type":"ListItem","position":4,"item":{"@type":"WebSite","name":"Andreza Fama Arquitetura","url":"https://www.andrezafama.com.br/","description":"Site do escritório de arquitetura comercial, em Astro, com portfólio, especialidades, depoimentos e dados estruturados."}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Johny Barbearia","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://barbearia-phi-nine.vercel.app/","description":"Site de agendamento para barbearia em Natal, com catálogo de serviços, escolha de barbeiro e horário, clube de assinatura mensal, entrada por chave de acesso e painel de agenda."}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Dança Digital","applicationCategory":"BusinessApplication","description":"Plataforma de gestão de festivais de dança com pontuação, ranking e ordem de apresentações, em produção.","operatingSystem":"Web"}},{"@type":"ListItem","position":7,"item":{"@type":"CreativeWork","name":"Pipeline de data storytelling com IA","description":"Cinco etapas que levam dado anonimizado de festival até narrativa visual, com Gemini, NotebookLM e Looker Studio. Apresentado no Google I/O Extended 2026."}},{"@type":"ListItem","position":8,"item":{"@type":"CreativeWork","name":"Automação de relatórios em Power BI e Python","description":"Coleta por web scraping e AWS Simba, tratamento em Pandas e NumPy, modelo semântico em Power BI com DAX e Power Query."}},{"@type":"ListItem","position":9,"item":{"@type":"CreativeWork","name":"Flamengo 2026","url":"https://app.powerbi.com/view?r=eyJrIjoiODA3NWQ1OTgtZDA0NC00YmUwLWI4NzYtOGY3Yzk5ODcyZTg5IiwidCI6ImZmMGYzOTQ1LTBiODAtNDk2ZS1hNWE3LWI5YWMwNmJmZjkwMSJ9","description":"Relatório em Power BI com a temporada 2026 do Flamengo jogo a jogo, em onze capítulos: resultados, raio-X por competição, mapa de calor, destaques individuais e percentis por 90 minutos, com dados coletados em Python da API pública da ESPN e xG e xA estimados na própria temporada."}}]}</script>
 
 <script>
 /* Marca a barra do topo assim que a página sai do zero, para separar
@@ -1291,5 +1273,198 @@ a.painel-tela:focus-visible{outline:2px solid var(--anil);outline-offset:-2px}
 })();
 </script>
 
+<script>
+(function () {
+  var calmo = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var raiz = document.documentElement, ingles = raiz.lang === 'en', redesenhar = function () {};
+
+  /* Tema: escuro por padrão, a escolha fica guardada neste navegador. As marcas escuras
+     trocam para a versão clara delas, sem perder a cor. */
+  var ESCURAS = /^(.*\/)?logos\/(?:escuro\/)?(arqrede|base-de-projetos|andreza-fama|polyana-diogenes|emily-franca|gdg-natal)\.png$/;
+  var botaoTema = document.getElementById('nav-tema'), corTema = document.querySelector('meta[name="theme-color"]');
+  function aplicarTema(claro) {
+    if (claro) raiz.dataset.tema = 'claro'; else delete raiz.dataset.tema;
+    if (corTema) corTema.content = claro ? '#F3F4F6' : '#0B0C0E';
+    [].forEach.call(document.querySelectorAll('.marca img'), function (i) {
+      var src = i.getAttribute('src'), m = src.match(ESCURAS);
+      if (m) i.setAttribute('src', (m[1] || '') + 'logos/' + (claro ? '' : 'escuro/') + m[2] + '.png');
+    });
+    if (botaoTema) botaoTema.setAttribute('aria-label', ingles ? (claro ? 'Switch to dark mode' : 'Switch to light mode') : (claro ? 'Mudar para o modo escuro' : 'Mudar para o modo claro'));
+    redesenhar();
+  }
+  aplicarTema(raiz.dataset.tema === 'claro');
+  if (botaoTema) botaoTema.addEventListener('click', function () {
+    var claro = raiz.dataset.tema !== 'claro';
+    aplicarTema(claro);
+    try { localStorage.setItem('tema', claro ? 'claro' : 'escuro'); } catch (e) {}
+  });
+
+  /* Campo de barras em 3D no topo: um gráfico em relevo, em WebGL puro, sem biblioteca.
+     Cada barra é uma instância do mesmo prisma; a altura sai do shader, então a página não
+     recalcula nada por barra. O cursor levanta as barras por onde passa. Sem WebGL 2 o topo
+     fica só com o fundo escuro, e com movimento reduzido desenha um quadro e para. */
+  var tela = document.getElementById('campo');
+  var gl = tela && tela.getContext('webgl2', { alpha: true, antialias: true, powerPreference: 'low-power', preserveDrawingBuffer: calmo });
+  if (gl) {
+    var VERT = '#version 300 es\n' +
+      'layout(location=0) in vec3 aPos;layout(location=1) in vec3 aNor;layout(location=2) in vec2 aCel;' +
+      'uniform mat4 uVP;uniform float uT;uniform vec3 uM;uniform float uIntro;' +
+      'out vec3 vNor;out vec3 vLoc;out float vH;out vec3 vW;out float vPerto;' +
+      'float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}' +
+      'void main(){vec2 c=aCel;float t=uT;' +
+      'float a=sin(c.x*.21+t*.5)+sin(c.y*.29-t*.37)+sin((c.x+c.y)*.16+t*.27)+sin(length(c-vec2(7.,-5.))*.4-t*.62);' +
+      'a=pow(a*.125+.5,2.3);' +
+      'float h=.14+a*6.2;h*=.76+.48*hash(c);' +
+      'float d=distance(c,uM.xy);float perto=uM.z*exp(-d*d*.075);h+=perto*3.2;' +
+      'float k=clamp(uIntro*1.9-length(c)/46.,0.,1.);h*=k*k*(3.-2.*k);' +
+      'vec3 w=vec3(c.x+aPos.x*.84,aPos.y*h,c.y+aPos.z*.84);' +
+      'vNor=aNor;vLoc=aPos;vH=h;vW=w;vPerto=perto;gl_Position=uVP*vec4(w,1.);}';
+    var FRAG = '#version 300 es\nprecision highp float;' +
+      'in vec3 vNor;in vec3 vLoc;in float vH;in vec3 vW;in float vPerto;uniform vec3 uOlho;uniform float uClaro;out vec4 cor;' +
+      'void main(){vec3 N=normalize(vNor);vec3 sinal=vec3(1.,.698,.141);' +
+      'vec3 L=normalize(vec3(-.45,.8,.4));float luz=max(dot(N,L),0.);' +
+      'float alto=smoothstep(1.9,4.6,vH+vPerto*1.6);' +
+      'vec3 base=mix(vec3(.075,.08,.095),vec3(.17,.18,.21),smoothstep(.2,3.5,vH));' +
+      'vec3 baseC=mix(vec3(.86,.87,.895),vec3(.965,.97,.98),smoothstep(.2,3.5,vH));vec3 c;vec3 cc;' +
+      'if(N.y>.5){vec2 e=abs(vLoc.xz)*2.;float borda=smoothstep(.8,.97,max(e.x,e.y));' +
+      'c=mix(base*1.9,sinal,alto);c+=borda*mix(vec3(.13,.14,.16),sinal*.55,alto);' +
+      'cc=mix(baseC,sinal,alto)-borda*vec3(.09)*(1.-alto*.4);}' +
+      'else{float g=vLoc.y;c=base*(.16+.84*g)*(.42+luz*1.15);c+=sinal*alto*pow(g,6.)*.55;' +
+      'cc=baseC*(.66+.34*g)*(.74+luz*.36);cc=mix(cc,sinal,alto*pow(g,5.)*.75);}' +
+      'c=mix(c,cc,uClaro);' +
+      'float dist=distance(vW,uOlho);float nevoa=exp(-pow(dist*.0235,3.));' +
+      'cor=vec4(c*nevoa,nevoa);}';
+
+    function shader(tipo, fonte) { var s = gl.createShader(tipo); gl.shaderSource(s, fonte); gl.compileShader(s); return s; }
+    var prog = gl.createProgram();
+    gl.attachShader(prog, shader(gl.VERTEX_SHADER, VERT));
+    gl.attachShader(prog, shader(gl.FRAGMENT_SHADER, FRAG));
+    gl.linkProgram(prog);
+
+    if (gl.getProgramParameter(prog, gl.LINK_STATUS)) {
+      gl.useProgram(prog);
+      var u = {}; ['uVP', 'uT', 'uM', 'uIntro', 'uOlho', 'uClaro'].forEach(function (n) { u[n] = gl.getUniformLocation(prog, n); });
+
+      /* prisma sem a face de baixo: base em y 0, topo em y 1 */
+      var faces = [
+        [[-.5, 1, -.5], [-.5, 1, .5], [.5, 1, .5], [.5, 1, -.5], [0, 1, 0]],
+        [[.5, 0, -.5], [.5, 1, -.5], [.5, 1, .5], [.5, 0, .5], [1, 0, 0]],
+        [[-.5, 0, .5], [-.5, 1, .5], [-.5, 1, -.5], [-.5, 0, -.5], [-1, 0, 0]],
+        [[.5, 0, .5], [.5, 1, .5], [-.5, 1, .5], [-.5, 0, .5], [0, 0, 1]],
+        [[-.5, 0, -.5], [-.5, 1, -.5], [.5, 1, -.5], [.5, 0, -.5], [0, 0, -1]]
+      ], malha = [];
+      faces.forEach(function (f) { [0, 1, 2, 0, 2, 3].forEach(function (i) { malha.push.apply(malha, f[i]); malha.push.apply(malha, f[4]); }); });
+      var geo = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, geo);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(malha), gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(0); gl.vertexAttribPointer(0, 3, gl.FLOAT, false, 24, 0);
+      gl.enableVertexAttribArray(1); gl.vertexAttribPointer(1, 3, gl.FLOAT, false, 24, 12);
+
+      var pequeno = innerWidth < 760, NX = pequeno ? 46 : 84, NZ = pequeno ? 46 : 76, celulas = [];
+      for (var i = 0; i < NX; i++) for (var j = 0; j < NZ; j++) celulas.push(i - NX / 2, j - NZ / 2);
+      var inst = gl.createBuffer();
+      gl.bindBuffer(gl.ARRAY_BUFFER, inst);
+      gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(celulas), gl.STATIC_DRAW);
+      gl.enableVertexAttribArray(2); gl.vertexAttribPointer(2, 2, gl.FLOAT, false, 8, 0);
+      gl.vertexAttribDivisor(2, 1);
+
+      gl.enable(gl.DEPTH_TEST); gl.clearColor(0, 0, 0, 0);
+
+      var topo = tela.parentNode, W = 1, H = 1, visivel = true, inicio = performance.now();
+      var alvoX = 0, alvoY = 0, olhar = { x: 0, y: 0 }, mouse = { x: 0, z: 0, f: 0, alvo: 0 }, dentro = null;
+
+      var norm = function (v) { var l = Math.hypot(v[0], v[1], v[2]); return [v[0] / l, v[1] / l, v[2] / l]; };
+      var corte = function (a, b) { return [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]]; };
+      var ponto = function (a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2]; };
+
+      var camera = function () {
+        var largo = W / H, yaw = -0.72 + olhar.x * 0.09, altura = (W < 900 ? 19 : 24) - olhar.y * 1.4, raio = W < 900 ? 27 : 31;
+        var alvo = W < 900 ? [0, 0, -2] : [-9, 0, -7];
+        var olho = [alvo[0] + Math.sin(yaw) * raio, altura, alvo[2] + Math.cos(yaw) * raio];
+        var f = norm([alvo[0] - olho[0], alvo[1] - olho[1], alvo[2] - olho[2]]);
+        var s = norm(corte(f, [0, 1, 0])), c = corte(s, f);
+        var tang = Math.tan(0.42), n = 0.5, l = 140;
+        var view = [s[0], c[0], -f[0], 0, s[1], c[1], -f[1], 0, s[2], c[2], -f[2], 0, -ponto(s, olho), -ponto(c, olho), ponto(f, olho), 1];
+        var P = [1 / (tang * largo), 0, 0, 0, 0, 1 / tang, 0, 0, 0, 0, (l + n) / (n - l), -1, 0, 0, 2 * l * n / (n - l), 0];
+        var vp = new Float32Array(16);
+        for (var col = 0; col < 4; col++) for (var lin = 0; lin < 4; lin++) { var soma = 0; for (var k = 0; k < 4; k++) soma += P[k * 4 + lin] * view[col * 4 + k]; vp[col * 4 + lin] = soma; }
+        return { vp: vp, olho: olho, f: f, s: s, c: c, tang: tang, largo: largo };
+      };
+
+      var desenhar = function (t, intro) {
+        var cam = camera();
+        if (dentro) {   /* o cursor na tela vira um ponto no chão do gráfico */
+          var nx = dentro.x / W * 2 - 1, ny = 1 - dentro.y / H * 2, d = [0, 0, 0];
+          for (var e = 0; e < 3; e++) d[e] = cam.f[e] + cam.s[e] * nx * cam.tang * cam.largo + cam.c[e] * ny * cam.tang;
+          var q = -cam.olho[1] / d[1];
+          if (q > 0) { mouse.x = cam.olho[0] + d[0] * q; mouse.z = cam.olho[2] + d[2] * q; }
+        }
+        gl.clear(gl.COLOR_BUFFER_BIT | gl.DEPTH_BUFFER_BIT);
+        gl.uniformMatrix4fv(u.uVP, false, cam.vp);
+        gl.uniform1f(u.uT, t);
+        gl.uniform3f(u.uM, mouse.x, mouse.z, mouse.f);
+        gl.uniform1f(u.uIntro, intro);
+        gl.uniform1f(u.uClaro, raiz.dataset.tema === 'claro' ? 1 : 0);
+        gl.uniform3f(u.uOlho, cam.olho[0], cam.olho[1], cam.olho[2]);
+        gl.drawArraysInstanced(gl.TRIANGLES, 0, 30, NX * NZ);
+      };
+
+      var medir = function () {
+        var r = topo.getBoundingClientRect(), dpr = Math.min(window.devicePixelRatio || 1, pequeno ? 1.5 : 2);
+        W = r.width; H = r.height;
+        tela.width = Math.round(W * dpr); tela.height = Math.round(H * dpr);
+        gl.viewport(0, 0, tela.width, tela.height);
+        if (calmo) desenhar(6, 1);
+      };
+      if (calmo) redesenhar = function () { desenhar(6, 1); };
+      var quadro = function (agora) {
+        if (visivel && !document.hidden) {
+          olhar.x += (alvoX - olhar.x) * 0.05; olhar.y += (alvoY - olhar.y) * 0.05;
+          mouse.f += (mouse.alvo - mouse.f) * 0.08;
+          var t = (agora - inicio) / 1000;
+          desenhar(t + 6, Math.min(1, t / 1.8));
+        }
+        requestAnimationFrame(quadro);
+      };
+
+      medir();
+      addEventListener('resize', medir);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(medir);
+      if (!calmo) {
+        if ('IntersectionObserver' in window) new IntersectionObserver(function (e) { visivel = e[0].isIntersecting; }).observe(topo);
+        topo.addEventListener('pointermove', function (e) {
+          var r = topo.getBoundingClientRect();
+          dentro = { x: e.clientX - r.left, y: e.clientY - r.top }; mouse.alvo = 1;
+          alvoX = dentro.x / W * 2 - 1; alvoY = dentro.y / H * 2 - 1;
+        });
+        topo.addEventListener('pointerleave', function () { mouse.alvo = 0; alvoX = alvoY = 0; });
+        requestAnimationFrame(quadro);
+      }
+    }
+  }
+
+  /* Faixa de tempo da experiência: sai das próprias datas da célula. Sem início conhecido, sem faixa. */
+  var linhas = [].slice.call(document.querySelectorAll('#tabela-exp tbody tr')), agora = new Date();
+  var hoje = agora.getFullYear() * 12 + agora.getMonth(), base = hoje, periodos = [];
+  linhas.forEach(function (tr) {
+    var td = tr.querySelector('.c-periodo'), m = td.textContent.match(/(\d{2})\/(\d{4})/g);
+    if (!m) return;
+    var mes = function (s) { var p = s.split('/'); return +p[1] * 12 + (+p[0] - 1); };
+    var de = mes(m[0]), ate = m[1] ? mes(m[1]) : hoje;
+    base = Math.min(base, de); periodos.push({ td: td, de: de, ate: ate });
+  });
+  periodos.forEach(function (p) {
+    var texto = document.createElement('span');
+    texto.textContent = p.td.textContent;
+    var barra = document.createElement('span'), faixa = document.createElement('i');
+    barra.className = 'barra'; barra.setAttribute('aria-hidden', 'true');
+    faixa.style.left = ((p.de - base) / (hoje - base) * 100).toFixed(1) + '%';
+    faixa.style.width = ((p.ate - p.de) / (hoje - base) * 100).toFixed(1) + '%';
+    barra.appendChild(faixa);
+    p.td.textContent = '';
+    p.td.appendChild(texto); p.td.appendChild(barra);
+  });
+})();
+</script>
 </body>
 </html>
