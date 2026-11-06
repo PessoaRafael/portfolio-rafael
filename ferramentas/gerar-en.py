@@ -28,6 +28,7 @@ TRECHOS = [
     ('>28/09<', '>Sep 28<'),
     (' / ficha técnica', ' / tech sheet'),
     ('Baixar currículo', 'Download résumé (PT)'),
+    ('rafapessoa.com.br/og-rafael-pessoa-v2.jpg', 'rafapessoa.com.br/og-rafael-pessoa-v2-en.jpg'),
 ]
 for de, para in TRECHOS:
     assert de in s, de
