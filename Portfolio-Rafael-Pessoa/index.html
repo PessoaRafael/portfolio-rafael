@@ -282,6 +282,9 @@ html:not([data-tema="claro"]) .marca img[src$="teleperformance.svg"]{filter:brig
 /* Enquanto o arquivo não existe, o nome entra como assinatura. */
 .marca-nome{display:none;font-family:var(--titulo);font-weight:600;font-size:clamp(16px,1.9vw,20px);color:var(--apoio);white-space:nowrap}
 .sem-marca .marca-nome{display:block}
+/* Logo só com o símbolo (a Rank e a Civicus): o nome vai embaixo, pequeno, para saber de quem é. */
+.marca.com-nome{flex-direction:column;gap:6px}
+.marca.com-nome .marca-nome{display:block;font-family:var(--titulo);font-weight:500;font-size:12px;letter-spacing:.02em;line-height:1}
 
 /* ---------- Destaque ---------- */
 .destaque-capa{display:block;position:relative;overflow:hidden;text-decoration:none}
@@ -679,7 +682,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
   </div>
   <div class="esteira" role="group" aria-label="Empresas, clientes e comunidade com quem trabalhei">
       <ul class="esteira-trilha">
-        <li class="marca">
+        <li class="marca com-nome">
           <img src="logos/rank.png" alt="Rank" width="150" height="150" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Rank</span>
         </li>
@@ -723,7 +726,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
           <img src="logos/emily-franca.png" alt="Emily França" width="574" height="130" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Emily França</span>
         </li>
-        <li class="marca">
+        <li class="marca com-nome">
           <img src="logos/civicus.png" alt="Civicus Consultoria" width="620" height="536" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Civicus Consultoria</span>
         </li>
@@ -737,7 +740,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
         </li>
       </ul>
       <ul class="esteira-trilha" aria-hidden="true">
-        <li class="marca">
+        <li class="marca com-nome">
           <img src="logos/rank.png" alt="Rank" width="150" height="150" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Rank</span>
         </li>
@@ -781,7 +784,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
           <img src="logos/emily-franca.png" alt="Emily França" width="574" height="130" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Emily França</span>
         </li>
-        <li class="marca">
+        <li class="marca com-nome">
           <img src="logos/civicus.png" alt="Civicus Consultoria" width="620" height="536" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Civicus Consultoria</span>
         </li>
