@@ -119,6 +119,12 @@ T = {
  "Plataforma BASE de Projetos com a esteira de produção e o painel Perguntar, em tela de demonstração com dados fictícios": "BASE de Projetos platform with the production pipeline and the Ask panel, on a demo screen with fictional data",
  "Site no ar e plataforma em lançamento, com os escritórios parceiros Polyana Diógenes e Andreza Fama.": "Site live and platform launching, with partner firms Polyana Diógenes and Andreza Fama.",
  "Em implantação": "Rolling out", "em implantação": "rolling out",
+ "No ar e em uso no dia a dia da clínica, com mais de 1.100 testes automatizados. Sistema privado, e a tela acima usa dados fictícios.": "Live and in daily use at the clinic, with more than 1,100 automated tests. Private system; the screen above uses fictitious data.",
+ "Psicólogas que atendem sozinhas ou em clínica dividem agenda, prontuário e financeiro entre papel, planilha e WhatsApp.": "Psychologists working solo or in a clinic split their schedule, clinical records and finances across paper, spreadsheets and WhatsApp.",
+ "Transformei o sistema da clínica num produto para outras psicólogas: cada consultório com a própria logo e cores, link para o paciente marcar sessão, plano Individual e plano Clínica com equipe, secretária e repasses, e venda por Pix ou cartão com a licença liberada sozinha. Fiz também o site de venda, as videoaulas e o guia.": "I turned the clinic system into a product for other psychologists: each practice with its own logo and colors, a link for patients to book sessions, an Individual plan and a Clinic plan with team, receptionist and payouts, and sales by Pix or card with the license issued automatically. I also built the sales site, the video lessons and the guide.",
+ "Página da Psicoessencesis com o título Menos papel. Mais escuta. e a logo do infinito dourado": "Psicoessencesis page with the headline Less paper. More listening. and the golden infinity logo",
+ "Abrir o site da Psicoessencesis": "Open the Psicoessencesis site",
+ "Site no ar em psicoessencesis.com.br e venda aberta, com os planos Individual e Clínica.": "Site live at psicoessencesis.com.br with sales open, offering the Individual and Clinic plans.",
  "Sistema da clínica Emily França": "Emily França clinic system",
  "A rotina da psicóloga passava por fichas de papel, e prontuário de paciente pede sigilo de verdade.": "The psychologist's routine ran on paper forms, and patient records demand real confidentiality.",
  "Construí o sistema da clínica para o celular e o computador: fichas, prontuário, agenda com marcação pelo próprio paciente, documentos em PDF e financeiro. Prontuário e CPF são cifrados com AES-256-GCM, e toda tabela tem RLS forçado no PostgreSQL.": "I built the clinic system for phone and desktop: patient files, clinical records, scheduling with self-booking by patients, PDF documents and finance. Records and national IDs (CPF) are encrypted with AES-256-GCM, and every table has forced RLS in PostgreSQL.",
@@ -241,7 +247,7 @@ for m in re.finditer(r'<script type="application/ld\+json">(.*?)</script>', s, r
     varrer(json.loads(m.group(1)))
 
 # marcas, títulos citados e o nome em português que precisa ficar
-NOMES = re.compile(r"Monte seu universo|Crianças merecem|Dança Digital|Diógenes|França|Menos tempo perdido|Do imaginário|Sua cadeira|Ler esta página|Barbearia|Arquitetura|BASE de Projetos|Tudo para Pet|Clube Johny|Rio Grande do Norte")
+NOMES = re.compile(r"Monte seu universo|psicoessencesis.com|Crianças merecem|Dança Digital|Diógenes|França|Menos tempo perdido|Do imaginário|Sua cadeira|Ler esta página|Barbearia|Arquitetura|BASE de Projetos|Tudo para Pet|Clube Johny|Rio Grande do Norte")
 PT = re.compile(r"[ãõçáéíóúâêô]|\b(de|da|em|com|para|que|uma|não|os|na)\b", re.I)
 sobrou = sorted({x for x in t.achados if PT.search(x) and not NOMES.search(x) and not re.match(r"https?:|mailto:", x) and "@" not in x and "résumé" not in x})
 if sobrou:
