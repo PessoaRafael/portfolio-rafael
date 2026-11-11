@@ -275,7 +275,7 @@ td.c-resultado .txt{margin-top:3px;font-size:15px;line-height:1.4;color:var(--ap
    modo escuro. A da Teleperformance é preto puro, então basta inverter. */
 html:not([data-tema="claro"]) .marca img[src$="teleperformance.svg"]{filter:brightness(0) invert(1)}
 .marca img[src$="johny-barbearia.jpg"],.marca img[src$="esig.png"],
-.marca img[src$="rits.png"],.marca img[src$="tudo-para-pet.png"]{border-radius:8px}
+.marca img[src$="rits.png"],.marca img[src$="tudo-para-pet.png"],.marca img[src$="rank.png"]{border-radius:8px}
 /* Marca só de letras pesa mais na mesma altura; a de traço fino precisa de um pouco mais. */
 .marca img[src$="arqrede.png"]{height:clamp(23px,3vw,33px)}
 .marca img[src$="andreza-fama.png"]{height:clamp(38px,5vw,56px)}
@@ -680,8 +680,8 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
   <div class="esteira" role="group" aria-label="Companies, clients and community I have worked with">
       <ul class="esteira-trilha">
         <li class="marca">
-          <img src="../logos/rankmyapp.png" alt="RankMyApp" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
-          <span class="marca-nome" aria-hidden="true">RankMyApp</span>
+          <img src="../logos/rank.png" alt="Rank" width="150" height="150" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Rank</span>
         </li>
         <li class="marca">
           <img src="../logos/esig.png" alt="ESIG Software" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -722,6 +722,10 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
         <li class="marca">
           <img src="../logos/emily-franca.png" alt="Emily França" width="574" height="130" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Emily França</span>
+        </li>
+        <li class="marca">
+          <img src="../logos/civicus.png" alt="Civicus Consultoria" width="620" height="536" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Civicus Consultoria</span>
         </li>
         <li class="marca">
           <img src="../logos/teleperformance.svg" alt="Teleperformance" width="50" height="53" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -734,8 +738,8 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
       </ul>
       <ul class="esteira-trilha" aria-hidden="true">
         <li class="marca">
-          <img src="../logos/rankmyapp.png" alt="RankMyApp" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
-          <span class="marca-nome" aria-hidden="true">RankMyApp</span>
+          <img src="../logos/rank.png" alt="Rank" width="150" height="150" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Rank</span>
         </li>
         <li class="marca">
           <img src="../logos/esig.png" alt="ESIG Software" width="176" height="176" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -776,6 +780,10 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
         <li class="marca">
           <img src="../logos/emily-franca.png" alt="Emily França" width="574" height="130" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
           <span class="marca-nome" aria-hidden="true">Emily França</span>
+        </li>
+        <li class="marca">
+          <img src="../logos/civicus.png" alt="Civicus Consultoria" width="620" height="536" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
+          <span class="marca-nome" aria-hidden="true">Civicus Consultoria</span>
         </li>
         <li class="marca">
           <img src="../logos/teleperformance.svg" alt="Teleperformance" width="50" height="53" loading="lazy" decoding="async" onerror="const l=this.closest('li');l.classList.add('sem-marca');l.querySelector('.marca-nome').removeAttribute('aria-hidden');this.remove()">
@@ -1307,7 +1315,7 @@ a.painel-tela:focus-visible{outline:2px solid var(--sinal);outline-offset:2px}
 
   /* Tema: escuro por padrão, a escolha fica guardada neste navegador. As marcas escuras
      trocam para a versão clara delas, sem perder a cor. */
-  var ESCURAS = /^(.*\/)?logos\/(?:escuro\/)?(arqrede|base-de-projetos|andreza-fama|polyana-diogenes|emily-franca|gdg-natal)\.png$/;
+  var ESCURAS = /^(.*\/)?logos\/(?:escuro\/)?(arqrede|base-de-projetos|andreza-fama|polyana-diogenes|emily-franca|gdg-natal|civicus)\.png$/;
   var botaoTema = document.getElementById('nav-tema'), corTema = document.querySelector('meta[name="theme-color"]');
   function aplicarTema(claro) {
     if (claro) raiz.dataset.tema = 'claro'; else delete raiz.dataset.tema;
