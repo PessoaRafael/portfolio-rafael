@@ -27,7 +27,7 @@ TRECHOS = [
     ("'Abrir menu'", "'Open menu'"),
     ('>28/09<', '>Sep 28<'),
     (' / ficha técnica', ' / tech sheet'),
-    ('Baixar currículo', 'Download résumé (PT)'),
+    ('Baixar currículo', 'Download résumé'),
     ('rafapessoa.com.br/og-rafael-pessoa-v3.jpg', 'rafapessoa.com.br/og-rafael-pessoa-v3-en.jpg'),
 ]
 for de, para in TRECHOS:
@@ -220,6 +220,9 @@ for pt in sorted(T, key=len, reverse=True):
     en = T[pt]
     for bruto, novo in ((pt, en), (pt.replace("'", "&#39;"), en.replace("'", "&#39;"))):
         s = re.sub(r'(?<=[>"])(\s*)' + re.escape(bruto) + r'(\s*)(?=[<"])', lambda m: m.group(1) + novo + m.group(2), s)
+
+# o currículo em inglês (16/11): o PDF em português fica só na página em português
+s = s.replace('CV_RafaelPessoa_AnalistaDadosSenior.pdf', 'CV_RafaelPessoa_SeniorDataAnalyst_EN.pdf')
 
 # caminhos: a página fica uma pasta abaixo
 s = re.sub(r'(src|href)="(logos/|projetos/|destaques/|foto-rafael|CV_)', r'\1="../\2', s)
